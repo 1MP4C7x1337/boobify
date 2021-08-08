@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,6 +17,12 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('index');
-});
+})->name('main');
+
+Route::get('/join', function(){
+    return view('modelSubmission');
+})->name('modelSubmission');
+
+Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
 Auth::routes();

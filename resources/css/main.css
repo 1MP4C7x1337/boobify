@@ -6,3 +6,18 @@ body{
     color: ghostwhite;
     font-family: 'Poppins', sans-serif;
 }
+
+.orderBtn{
+    background-color: #e625a4;
+    color: ghostwhite;
+    padding: 10px;
+    border-radius: 25px;
+}
+
+.footer {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: white;
+  }

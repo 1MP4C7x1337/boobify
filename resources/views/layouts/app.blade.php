@@ -18,7 +18,7 @@
 </head>
 <body class="antialiased">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color: background-color: #131313;">
+        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:transparent; background-color: background-color: #131313;">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -50,10 +50,13 @@
                             @endif --}}
                         @else
                             <li class="nav-item dropdown">
+                                @if(Auth::user()->role == "model")
+                                    <span class="badge rounded-pill" style="background-color: #e625a4; font-size: 12px;">Model account</span>
+                                @endif
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
-
+                                
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -72,7 +75,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 mb-5">
             @yield('content')
         </main>
     </div>
