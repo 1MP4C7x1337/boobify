@@ -32,13 +32,13 @@
         <div class="row justify-content-around text-center mt-5">
             <div class="col-2"></div>
             <div class="col-8">
-                <div class="row row-cols-1 row-cols-md-3">
-                    <?php $items = [1, 2, 3, 4, 5, 6] ?>
-                    @foreach ($items as $item)
+                <div class="row row-cols-1 row-cols-md-4">
+                    @foreach ($models as $model)
                     <div class="col mb-4">
                         <div class="card" style="background-color: #222222; border-radius: 25px;">
+                            <h5 class="card-title mt-2">{{ $model->name }}, {{ $model->age }}</h5>
+                            <x-cld-image public-id="{{ $model->images }}"></x-cld-image>
                             <div class="card-body">
-                                <h5 class="card-title">Sarah, 19</h5>
                                 <p class="card-text"></p>
                                 <button class="btn mainBtn">Order now</button>
                             </div>

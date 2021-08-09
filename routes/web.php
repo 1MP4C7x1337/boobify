@@ -1,10 +1,9 @@
 <?php
 
-use App\Http\Controllersa\UserController;
+use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
-use Cloudinary\Configuration\Configuration;
 use Symfony\Component\HttpFoundation\Request;
 
 /*
@@ -18,9 +17,7 @@ use Symfony\Component\HttpFoundation\Request;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-})->name('main');
+Route::get('/', [UserController::class, 'index'])->name('main');
 
 Route::get('/join', function(){
     return view('modelSubmission');
@@ -33,3 +30,7 @@ Route::get('/test', function(){
 Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
 Auth::routes();
+
+Route::get('/elo', function(){
+    return view('index');
+})->name('user');

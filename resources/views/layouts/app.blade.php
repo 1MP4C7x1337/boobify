@@ -15,6 +15,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    @cloudinaryJS
 </head>
 <body class="antialiased">
     <div id="app">
