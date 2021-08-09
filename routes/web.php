@@ -34,3 +34,7 @@ Auth::routes();
 Route::get('/elo', function(){
     return view('index');
 })->name('user');
+
+Route::get('/vito', function (){
+    return view('sign-in');
+});
