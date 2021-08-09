@@ -19,6 +19,7 @@
 </head>
 <body class="antialiased">
     <div id="app">
+        {{--  
         <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:transparent; background-color: background-color: #131313;">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
@@ -26,7 +27,7 @@
                 </a> --}}
                 {{-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
-                </button> --}}
+                </button> 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -48,7 +49,7 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                                 </li>
-                            @endif --}}
+                            @endif 
                         @else
                             <li class="nav-item dropdown">
                                 @if(Auth::user()->role == "model")
@@ -75,8 +76,36 @@
                 </div>
             </div>
         </nav>
+         --}}
 
         <main class="py-4 mb-5">
+            @guest
+            @if (Route::has('login'))
+                <a class="float-right mr-5 text-white" style="font-size: 18px;" href="{{ route('login') }}"><img width="24" height="24" src="{{ asset('img/login.png') }}"/>{{ __('Login') }}</a>
+            @endif
+            @else
+                @if(Auth::user()->role == "model")
+                    <span class="badge rounded-pill float-right mr-5 " style="background-color: #e625a4; font-size: 12px;">Model account</span>
+                @endif
+                <div class="dropdown float-right mr-3 mt-5" style="background-color: #e625a4;">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}    
+                    </button>
+                    <div class="dropdown-menu " aria-labelledby="dropdownMenuButton" >
+                        <div class="dropdown-item" aria-labelledby="navbarDropdown">
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                @csrf
+                            </form>
+                        </div>
+                    </div>
+            </div>
+            @endguest
             @yield('content')
         </main>
     </div>
