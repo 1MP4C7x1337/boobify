@@ -40,7 +40,7 @@
                             <div class="card-body">
                                 <h5 class="card-title">Sarah, 19</h5>
                                 <p class="card-text"></p>
-                                <button class="btn orderBtn">Order now</button>
+                                <button class="btn mainBtn">Order now</button>
                             </div>
                         </div>
                     </div>

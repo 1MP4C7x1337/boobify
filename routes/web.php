@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\UserController;
+use App\Http\Controllersa\UserController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\CssSelector\Node\FunctionNode;
+use Cloudinary\Configuration\Configuration;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +25,19 @@ Route::get('/', function () {
 Route::get('/join', function(){
     return view('modelSubmission');
 })->name('modelSubmission');
+
+Route::get('/test', function(){
+    return view('imgUpload');
+});
+
+Route::post('uploadFile', function(Request $request){
+    // dd($request->file());
+    foreach ($request->file('image') as $img){
+        $img->storeOnCloudinary();
+    }
+    
+    
+});
 
 Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
