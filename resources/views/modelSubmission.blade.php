@@ -11,7 +11,7 @@
                 </div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('register') }}"  enctype="multipart/form-data">
                         @csrf
 
                         {{-- Hidden role input --}}
@@ -79,9 +79,17 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Sample photos') }}</label>
+
+                            <div class="col-md-6">
+                                <input class="form-control bg-dark" name="images[]" type="file" id="images" multiple style="color: ghostwhite; border: none;">
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn mainBtn">
                                     {{ __('Register') }}
                                 </button>
                                 <a class="btn btn-link mt-2" href="{{ route('login') }}">

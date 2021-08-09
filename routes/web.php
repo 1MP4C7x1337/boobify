@@ -30,17 +30,6 @@ Route::get('/test', function(){
     return view('imgUpload');
 });
 
-Route::post('uploadFile', function(Request $request){
-    // dd($request->file());
-    $img_ids = [];
-    foreach ($request->file('image') as $img){
-        $file = $img->storeOnCloudinary();
-        array_push($img_ids, $file->getPublicId());
-    }
-    dd($img_ids);
-    
-});
-
 Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
 Auth::routes();

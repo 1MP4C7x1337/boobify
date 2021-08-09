@@ -65,12 +65,32 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'age' => $data['age'],
-            'role' => $data['role'] ?? 'user',
-            'password' => Hash::make($data['password']),
-        ]);
+        if($data['role'] == 'model'){
+            $img_ids = [];
+            foreach ($data['images'] as $img){
+                $file = $img->storeOnCloudinary();
+                array_push($img_ids, $file->getPublicId());
+            }
+            $img_ids = implode(';', $img_ids);
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'age' => $data['age'],
+                'role' => $data['role'] ?? 'user',
+                'images' => $img_ids,
+                'password' => Hash::make($data['password']),
+            ]);
+        }
+
+        if ($data['role'] != 'model'){
+            return User::create([
+                'name' => $data['name'],
+                'email' => $data['email'],
+                'age' => $data['age'],
+                'role' => $data['role'] ?? 'user',
+                'password' => Hash::make($data['password']),
+            ]);
+        }
+        
     }
 }

@@ -36,7 +36,7 @@
                     <?php $items = [1, 2, 3, 4, 5, 6] ?>
                     @foreach ($items as $item)
                     <div class="col mb-4">
-                        <div class="card" style="background-color: #222222;">
+                        <div class="card" style="background-color: #222222; border-radius: 25px;">
                             <div class="card-body">
                                 <h5 class="card-title">Sarah, 19</h5>
                                 <p class="card-text"></p>
