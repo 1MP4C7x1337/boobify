@@ -34,10 +34,22 @@
             <div class="col-8">
                 <div class="row row-cols-1 row-cols-md-4">
                     @foreach ($models as $model)
+                    @php
+                        $image = explode(';', $model->images)[0]
+                    @endphp
                     <div class="col mb-4">
-                        <div class="card" style="background-color: #222222; border-radius: 25px;">
-                            <h5 class="card-title mt-2">{{ $model->name }}, {{ $model->age }}</h5>
-                            <x-cld-image public-id="{{ $model->images }}"></x-cld-image>
+                        <div class="card h-100" style="background-color: #222222; border-radius: 25px;">
+                            <h5 class="card-title mt-2">
+                                {{ $model->name }}, {{ $model->age }}
+                                @if(Cache::has('user-is-online-' . $model->id))
+                                <img class="img-fluid" width="8" height="8" style="" src="{{ asset('img/online.png') }}">
+                                @else
+                                    
+                                @endif
+                            </h5>
+                            {{-- <x-cld-image public-id="{{ $image }}"></x-cld-image> --}}
+                            <img class="" style="object-fit: cover; width: 100%; height: 15vw;" src="https://res.cloudinary.com/boobify/image/upload/v1628532918/{{ $image }}.jpg">
+                            
                             <div class="card-body">
                                 <p class="card-text"></p>
                                 <button class="btn mainBtn">Order now</button>

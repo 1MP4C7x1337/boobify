@@ -33,9 +33,4 @@ class UserController extends Controller
                 echo "User " . $user->name . " is offline.";
         }
     }
-
-    /* Model submission form handling */
-    public function createModel(Request $request){  
-
-    }
 }
