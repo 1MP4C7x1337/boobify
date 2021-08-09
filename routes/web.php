@@ -32,10 +32,12 @@ Route::get('/test', function(){
 
 Route::post('uploadFile', function(Request $request){
     // dd($request->file());
+    $img_ids = [];
     foreach ($request->file('image') as $img){
-        $img->storeOnCloudinary();
+        $file = $img->storeOnCloudinary();
+        array_push($img_ids, $file->getPublicId());
     }
-    
+    dd($img_ids);
     
 });
 
