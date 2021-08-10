@@ -16,7 +16,7 @@
       <!-- Responsive CSS -->
       <link rel="stylesheet" href="css/responsive.css">
    </head>
-   <body>
+   <body class="dark">
       <!-- loader Start -->
       <div id="loading">
          <div id="loading-center">

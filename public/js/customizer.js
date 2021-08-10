@@ -1,7 +1,7 @@
 (function (jQuery) {
     "use strict";
     
-    const storageDark = sessionStorage.getItem('dark')
+    const storageDark = 'true';
     
     if($('body').hasClass('dark')){
         changeMode('true');
