@@ -29,7 +29,7 @@
                 <td>{{ $service->service_name }}</td>
                 <td>{{ $service->service_desc }}</td>
                 <td>{{ $service->price }}</td>
-                <td style="width: 5rem;"><a href="{{ route('delete_service', $service->id) }}"><button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill pr-0"></i>Delete</button></td>
+                <td style="width: 5rem;"><a href="{{ route('delete_service', $service->id) }}"><button type="button" class="btn btn-danger mb-3"><i class="ri-delete-bin-2-fill pr-0"></i>Delete</button></a></td>
             </tr>
         @endforeach
        
@@ -69,7 +69,7 @@
             </div>
           <div class="form-group">
             <label for="price">Price $</label>
-            <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" id="price" >
+            <input type="number" name="price" class="form-control @error('price') is-invalid @enderror" id="price" min="0">
             @error('price')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -77,7 +77,6 @@
             @enderror
         </div>
           <button type="submit" class="btn btn-primary">Submit</button>
-          <button type="submit" class="btn iq-bg-danger">cancle</button>
        </form>
     </div>
  </div>

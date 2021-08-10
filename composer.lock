@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1fd104f2d8c2d1f8d54aa305a589e928",
+    "content-hash": "184a77fd70684a6571d635771b927b21",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -1073,16 +1073,16 @@
         },
         {
             "name": "laravel/framework",
-            "version": "v8.53.1",
+            "version": "v8.54.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/framework.git",
-                "reference": "5df423c2790f32b26baee90518bb659572aa404f"
+                "reference": "7b88554cd1aeb52b7f82689bf244182e7a81894b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/framework/zipball/5df423c2790f32b26baee90518bb659572aa404f",
-                "reference": "5df423c2790f32b26baee90518bb659572aa404f",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/7b88554cd1aeb52b7f82689bf244182e7a81894b",
+                "reference": "7b88554cd1aeb52b7f82689bf244182e7a81894b",
                 "shasum": ""
             },
             "require": {
@@ -1237,7 +1237,7 @@
                 "issues": "https://github.com/laravel/framework/issues",
                 "source": "https://github.com/laravel/framework"
             },
-            "time": "2021-08-05T14:04:08+00:00"
+            "time": "2021-08-10T14:25:51+00:00"
         },
         {
             "name": "laravel/tinker",
@@ -2888,6 +2888,66 @@
                 }
             ],
             "time": "2021-08-06T22:30:43+00:00"
+        },
+        {
+            "name": "shakurov/coinbase",
+            "version": "v0.7.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shakurov/laravel-coinbase.git",
+                "reference": "81440876fea3592b7e8efb07fdf38b565b200cfb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shakurov/laravel-coinbase/zipball/81440876fea3592b7e8efb07fdf38b565b200cfb",
+                "reference": "81440876fea3592b7e8efb07fdf38b565b200cfb",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": "^7.0.1",
+                "php": "^7.3|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^6.0.0",
+                "phpunit/phpunit": "^9.3.3"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Shakurov\\Coinbase\\CoinbaseServiceProvider"
+                    ],
+                    "aliases": {
+                        "Coinbase": "Shakurov\\Coinbase\\Facades\\Coinbase"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Shakurov\\Coinbase\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vladimir Shakurov",
+                    "email": "vladimir@shakurov.com"
+                }
+            ],
+            "description": "Laravel wrapper for the Coinbase Commerce API",
+            "keywords": [
+                "coinbase",
+                "coinbase commerce",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/shakurov/laravel-coinbase/issues",
+                "source": "https://github.com/shakurov/laravel-coinbase/tree/v0.7.7"
+            },
+            "time": "2021-04-27T06:46:42+00:00"
         },
         {
             "name": "shrikeh/teapot",

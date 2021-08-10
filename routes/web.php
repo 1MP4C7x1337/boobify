@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ModelController;
+use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\UserController;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
@@ -33,6 +35,21 @@ Route::get('dashboard', function(){
 Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
 
+
+
+//Admin routes
+Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->name('adminPanel');
+Route::get('adminPanel', function(){
+    return redirect('adminPanel/orders');
+});
+
+Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
+Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
+
+
+
 Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
+Route::get('/retrieve', [PaymentsController::class, 'show']);
+Route::Get('/delete', [PaymentsController::class, 'delete']);
 Auth::routes();

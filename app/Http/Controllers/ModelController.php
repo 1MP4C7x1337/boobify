@@ -15,36 +15,19 @@ class ModelController extends Controller
         //     return view('model_dash.orders');
         // }
 
-        $models = User::select('*')->where('role', 'model')->get();
-        $model = null;
-
-        foreach ($models as $item){
-            if ($item->email == Auth::user()->email){
-                $model = $item;
-                break;
-            }
-        }
-
         switch ($page){
             case 'orders':
-                return view('model_dash.orders', [
-                    'model' => $model
-                ]);
+                return view('model_dash.orders');
             case 'earnings':
-                return view('model_dash.earnings', [
-                    'model' => $model
-                ]);
+                return view('model_dash.earnings');
             case 'services':
                 $services = Service::select('*')->where('name', Auth::user()->name)->get();
 
                 return view('model_dash.services', [
-                    'model' => $model,
                     'services' => $services
                 ]);
             case 'chat':
-                return view('model_dash.chat', [
-                    'model' => $model
-                ]);
+                return view('model_dash.chat');
         }
     }
 
@@ -52,7 +35,7 @@ class ModelController extends Controller
         $validated = $request->validate([
             'service_name' => 'required',
             'service_desc' => 'required',
-            'price' => 'required'
+            'price' => ['required', 'int']
         ]);
         Service::create([
             'name' => Auth::user()->name,

@@ -53,6 +53,9 @@
                                 @if(Auth::user()->role == "model")
                                     <span class="badge rounded-pill" style="background-color: #e625a4; font-size: 12px;">Model account</span>
                                 @endif
+                                @if(Auth::user()->role == "admin")
+                                    <span class="badge rounded-pill" style="background-color: #e625a4; font-size: 12px;">Admin account</span>
+                                @endif
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -60,6 +63,12 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role == "model")
                                         <a class="dropdown-item" href="{{ route('dashboard', 'orders') }}"
+                                        onclick="">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    @endif
+                                    @if(Auth::user()->role == "admin")
+                                    <a class="dropdown-item" href="{{ route('adminPanel', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
