@@ -11,7 +11,10 @@ class Orders extends Model
 
     protected $fillable = [
         'payment_id',
-        'name',
+        'model_name',
+        'user_name',
+        'service_name',
+        'info',
         'price'
     ];
 }

@@ -38,7 +38,7 @@
                                         <label for="exampleFormControlSelect2">Choose service</label>
                                         <select name="service" class="form-control" id="exampleFormControlSelect2" size="{{ count($services) }}" required>
                                            @foreach ($services as $service)
-                                               <option>{{ $service->service_name }}, {{ $service->price }}$</option>
+                                               <option value="{{ $service->service_name }};{{ $service->price }}">{{ $service->service_name }}, {{ $service->price }}$</option>
                                            @endforeach
                                         </select>
                                      </div>

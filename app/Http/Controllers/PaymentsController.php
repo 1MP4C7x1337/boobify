@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use Coinbase;
 use Illuminate\Support\Facades\DB;
 use PDO;
+use Illuminate\Support\Facades\Auth;
 
 class PaymentsController extends Controller
 {
@@ -57,18 +58,22 @@ class PaymentsController extends Controller
                 'service' => 'required',
                 'info' => 'required'
             ]);
+            $service = explode(';', $request->service);
 
             $charge = Coinbase::createCharge([
                 'name' => 'Real payment',
                 'description' => 'Description',
                 'local_price' => [
-                    'amount' => 1,
+                    'amount' => intval($service[1]),
                     'currency' => 'USD',
                 ],
                 'pricing_type' => 'fixed_price',
                 'metadata' => [
-                    'user' => $request->model,
-                    'price' => $request->price
+                    'user_name' => Auth::user()->name,
+                    'model_name' => $request->model,
+                    'service_name' => $service[0],
+                    'price' => $service[1],
+                    'info' => $request->info
                 ]
             ]);
         }
