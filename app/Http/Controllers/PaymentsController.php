@@ -9,7 +9,6 @@ use Coinbase;
 class PaymentsController extends Controller
 {
     public function show(){
-        $charges = Coinbase::getCharges();
         
         $charge = Coinbase::createCharge([
             'name' => 'Test payment',
@@ -20,12 +19,14 @@ class PaymentsController extends Controller
             ],
             'pricing_type' => 'fixed_price',
         ]);
-        // dd($charges);
         return view('testpayments');
     }
 
-    public function delete(){
-        Checkout::deleteById();
+    public function webhook(){
+        $charges = Coinbase::getCharges();
+        dump($charges);
+        $events = Coinbase::getEvents();
+        dd($events);
     }
 
 }
