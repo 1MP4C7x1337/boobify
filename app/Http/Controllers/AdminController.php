@@ -29,11 +29,13 @@ class AdminController extends Controller
     public function editUser($id, Request $request){
 
         $user = User::where('id', $id)->first();
+        $roles = User::select('role')->groupBy('role')->get();
 
         if($request->isMethod('get')){
 
             return view('admin_dash.editUser',[
-                'user' => $user
+                'user' => $user,
+                'roles' => $roles
             ]);
 
         }else if($request->isMethod('post')){

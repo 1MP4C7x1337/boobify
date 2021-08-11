@@ -19,6 +19,16 @@
                 </span>
             @enderror
         </div>
+        <div class="dropdown my-3">
+            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select role
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                @foreach ($roles as $role)
+                    <p class="dropdown-item">{{ $role->role }}</p>
+                @endforeach
+            </div>
+        </div>
         @if ($user->role=="model")
             <div class="form-group">
                 <label for="service_name">Age</label>
