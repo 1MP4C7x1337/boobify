@@ -35,6 +35,10 @@ Route::get('dashboard', function(){
 Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
 
+//Order routes
+Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
+Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
+
 
 
 //Admin routes

@@ -52,7 +52,7 @@
                             
                             <div class="card-body">
                                 <p class="card-text"></p>
-                                <button class="btn mainBtn">Order now</button>
+                                <a href="{{ route('create_order', $model->id) }}"><button class="btn mainBtn">Order now</button></a>
                             </div>
                         </div>
                     </div>
