@@ -20,13 +20,18 @@
             @enderror
         </div>
         <div class="dropdown my-3">
-            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select role
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                @foreach ($roles as $role)
-                    <p class="dropdown-item">{{ $role->role }}</p>
-                @endforeach
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Select Role</label>
+                <select name="role" class="form-control" id="exampleFormControlSelect1">
+                    <option selected="">{{ $user->role }}</option>
+                    @foreach ($roles as $role)
+                    @if($role->role == $user->role)
+
+                    @else
+                        <option>{{ $role->role }}</option>
+                    @endif
+                   @endforeach
+                </select>
             </div>
         </div>
         @if ($user->role=="model")

@@ -29,7 +29,7 @@ class AdminController extends Controller
     public function editUser($id, Request $request){
 
         $user = User::where('id', $id)->first();
-        $roles = User::select('role')->groupBy('role')->get();
+        $roles = User::select('role')->groupBy('role')->orderBy('role', 'asc')->get();
 
         if($request->isMethod('get')){
 
@@ -109,12 +109,14 @@ class AdminController extends Controller
                     'name' => $request->name,
                     'age' => $request->age,
                     'email' => $request->email,
+                    'role' => $request->role,
                     'password' => Hash::make($request->password)
                 ]);
             }else{
                 User::where('id', $id)->update([
                     'name' => $request->name,
                     'age' => $request->age,
+                    'role' => $request->role,
                     'email' => $request->email
                 ]);
             }

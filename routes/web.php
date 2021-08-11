@@ -51,5 +51,6 @@ Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->n
 Route::get('/check', [UserController::class, 'userOnlineStatus']);
 
 Route::get('/retrieve', [PaymentsController::class, 'show']);
-Route::Get('/delete', [PaymentsController::class, 'delete']);
+Route::Get('/webhooks', [PaymentsController::class, 'webhook']);
+
 Auth::routes();
