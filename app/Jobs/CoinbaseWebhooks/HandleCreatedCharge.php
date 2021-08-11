@@ -25,7 +25,7 @@ class HandleCreatedCharge implements ShouldQueue
     {
         $webhook = $this->webhookCall->payload;
         Orders::create([
-            'payment_id' => $webhook->id
+            'payment_id' => 1
         ]);
         // you can access the payload of the webhook call with `$this->webhookCall->payload`
     }
