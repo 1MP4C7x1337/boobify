@@ -61,8 +61,8 @@ class PaymentsController extends Controller
             $service = explode(';', $request->service);
 
             $charge = Coinbase::createCharge([
-                'name' => 'Real payment',
-                'description' => 'Description',
+                'name' => 'Boobify',
+                'description' => $service[0],
                 'local_price' => [
                     'amount' => intval($service[1]),
                     'currency' => 'USD',
