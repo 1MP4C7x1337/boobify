@@ -43,45 +43,45 @@ class AdminController extends Controller
                 if (($request->name != $user->name) and ($request->email != $user->email)){
                     if($request->password != null){
                         $validated = $request->validate([
-                            'name' => 'unique:users',
-                            'email' => 'unique:users', 
+                            'name' => ['unique:users', 'required'],
+                            'email' => ['unique:users', 'required'], 
                             'age' => 'int',
                             'password' => 'min:8'
                         ]);
                     }else{
                         $validated = $request->validate([
-                            'name' => 'unique:users',
-                            'email' => 'unique:users', 
+                            'name' => ['unique:users', 'required'],
+                            'email' => ['unique:users', 'required'], 
                             'age' => 'int'
                         ]);
                     }
                 }else if (($request->name != $user->name) and ($request->email == $user->email)){
                     if($request->password != null){
                         $validated = $request->validate([
-                            'name' => 'unique:users',
-                            'email' => '', 
+                            'name' => ['unique:users', 'required'],
+                            'email' => ['required'], 
                             'age' => 'int',
                             'password' => 'min:8'
                         ]);
                     }else{
                         $validated = $request->validate([
-                            'name' => 'unique:users',
-                            'email' => '', 
+                            'name' => ['unique:users', 'required'],
+                            'email' => 'required', 
                             'age' => 'int'
                         ]);
                     }
                 }else if (($request->name == $user->name) and ($request->email != $user->email)){
                     if($request->password != null){
                         $validated = $request->validate([
-                            'name' => '',
-                            'email' => 'unique:users', 
+                            'name' => 'required',
+                            'email' => ['unique:users', 'required'], 
                             'age' => 'int',
                             'password' => 'min:8'
                         ]);
                     }else{
                         $validated = $request->validate([
-                            'name' => '',
-                            'email' => 'unique:users', 
+                            'name' => 'required',
+                            'email' => ['unique:users', 'required'], 
                             'age' => 'int'
                         ]);
                     }
