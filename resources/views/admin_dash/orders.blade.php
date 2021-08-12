@@ -20,6 +20,7 @@
                         <th>Additional information</th>
                         <th>Price $</th>
                         <th>Status</th>
+                        <th>Created at</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -32,7 +33,8 @@
                             <td>{{ $order->service_name }}</td>
                             <td>{{ $order->info }}</td>
                             <td>{{ $order->price}}</td>
-                            <td>{{ $order->status }}</td>
+                            <td><span class="badge badge-info">{{ $order->current_status }}</span></td>
+                            <td>{{ $order->created_at }}</td>
                         </tr>
                     @endforeach
                 </tbody>
