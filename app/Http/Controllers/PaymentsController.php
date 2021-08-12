@@ -53,6 +53,7 @@ class PaymentsController extends Controller
                 'services' => $services
                 
             ]);
+            
         }else if($request->isMethod('post')){
             $validated = $request->validate([
                 'service' => 'required',
@@ -68,6 +69,16 @@ class PaymentsController extends Controller
                     'currency' => 'USD',
                 ],
                 'pricing_type' => 'fixed_price',
+                'metadata' => [
+                    'user_name' => Auth::user()->name,
+                    'model_name' => $request->model,
+                    'service_name' => $service[0],
+                    'price' => $service[1],
+                    'info' => $request->info
+                ]
+            ]);
+            return view('orders.paymentScreen',[
+                'charge_id' => $charge['data']['id'],
                 'metadata' => [
                     'user_name' => Auth::user()->name,
                     'model_name' => $request->model,

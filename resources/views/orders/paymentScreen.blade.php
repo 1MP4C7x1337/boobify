@@ -29,12 +29,11 @@
                     <div class="col-sm-12 align-self-center">
                         <div class="sign-in-from">
                             <h1 class="mb-0 dark-signin">Order wizard</h1>
-                            <h3 class="mb-0 dark-signin">Model: {{ $model->name }}, {{ $model->age }}</h3>
-                            
+                            <h3 class="mb-0 dark-signin">Model: </h3>
+                            {{ $charge_id }}
                             
                         </div>
                     </div>
-                    @yield('content')
                 </div>
             </div>
         </section>
