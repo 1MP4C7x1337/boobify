@@ -15,6 +15,7 @@ class Orders extends Model
         'user_name',
         'service_name',
         'info',
-        'price'
+        'price',
+        'status'
     ];
 }
