@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Mockery\Generator\Method;
@@ -16,7 +17,10 @@ class AdminController extends Controller
 
         switch ($page){
             case 'orders':
-                return view('admin_dash.orders');
+                $orders = Orders::select('*')->orderBy('created_at', 'desc')->get();
+                return view('admin_dash.orders', [
+                    'orders' => $orders
+                ]);
             case 'users':
                 $users = User::select('*')->orderBy('role', 'asc')->get();
 

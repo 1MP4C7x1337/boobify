@@ -3,4 +3,6 @@
 @endforeach
 
 
-<a href="https://commerce.coinbase.com/charges/DQ2Q7DEJ">pay</a>
+<div>
+    
+</div>

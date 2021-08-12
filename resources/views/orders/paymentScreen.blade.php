@@ -28,10 +28,47 @@
                 <div class="row no-gutters">
                     <div class="col-sm-12 align-self-center">
                         <div class="sign-in-from">
-                            <h1 class="mb-0 dark-signin">Order wizard</h1>
-                            <h3 class="mb-0 dark-signin">Model: </h3>
-                            {{ $charge_id }}
+                            <h1 class="mb-0 dark-signin">Order confirmation</h1>
                             
+                            <div class="iq-card">
+                                <div class="iq-card-header d-flex justify-content-between">
+                                   <div class="iq-header-title">
+                                      <h4 class="card-title">Order {{ $charge_code }}</h4>
+                                   </div>
+                                </div>
+                                <div class="iq-card-body">
+                                   <div class="table-responsive">
+                                      <table id="datatable" class="table table-striped table-bordered" >
+                                <thead>
+                                    <tr>
+                                        <th>User Name</th>
+                                        <th>Model Name</th>
+                                        <th>Service Name</th>
+                                        <th>Additional information</th>
+                                        <th>Price $</th>
+                                   </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $metadata['user_name'] }}</td>
+                                        <td>{{ $metadata['model_name'] }}</td>
+                                        <td>{{ $metadata['service_name'] }}</td>
+                                        <td>{{ $metadata['info'] }}</td>
+                                        <td>{{ $metadata['price'] }}</td>
+                                    </tr>
+
+                                   
+                               </tbody>
+                            </table>
+                                   </div>
+                                </div>
+                             </div>
+                            <a class="float-right" href="https://commerce.coinbase.com/charges/{{ $charge_code }}">
+                                <button type="button" class="btn btn-primary" style="background: #1652f0 linear-gradient(#1652f0, #0655ab);">
+                                    Buy with Crypto
+                                </button>
+                            </a>
+
                         </div>
                     </div>
                 </div>

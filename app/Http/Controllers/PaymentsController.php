@@ -78,7 +78,7 @@ class PaymentsController extends Controller
                 ]
             ]);
             return view('orders.paymentScreen',[
-                'charge_id' => $charge['data']['id'],
+                'charge_code' => $charge['data']['code'],
                 'metadata' => [
                     'user_name' => Auth::user()->name,
                     'model_name' => $request->model,

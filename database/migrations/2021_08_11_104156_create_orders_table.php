@@ -20,6 +20,7 @@ class CreateOrdersTable extends Migration
             $table->string('user_name')->nullable();
             $table->string('service_name')->nullable();
             $table->string('info')->nullable();
+            $table->string('current_status')->nullable();
             $table->string('price')->nullable();
             $table->timestamps();
         });
