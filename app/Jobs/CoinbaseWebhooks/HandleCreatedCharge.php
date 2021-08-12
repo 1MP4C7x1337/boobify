@@ -32,7 +32,7 @@ class HandleCreatedCharge implements ShouldQueue
             'service_name' => $webhook['event']['data']['metadata']['service_name'],
             'info' => $webhook['event']['data']['metadata']['info'],
             'price' => $webhook['event']['data']['metadata']['price'],
-            'status' =>  'NEW',
+            'current_status' =>  'NEW',
         ]);
         // you can access the payload of the webhook call with `$this->webhookCall->payload`
     }

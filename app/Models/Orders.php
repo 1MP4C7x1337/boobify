@@ -16,6 +16,6 @@ class Orders extends Model
         'service_name',
         'info',
         'price',
-        'status'
+        'current_status'
     ];
 }
