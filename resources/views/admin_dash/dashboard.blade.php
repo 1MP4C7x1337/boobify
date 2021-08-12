@@ -50,6 +50,9 @@
                   <li>
                      <a href="{{ route('adminPanel', 'users') }}" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>All users</span></a>
                   </li>
+                  <li>
+                     <a href="{{ route('chatify') }}" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>Chat</span></a>
+                  </li>
                </ul>
             </nav>
             <div class="p-3"></div>
