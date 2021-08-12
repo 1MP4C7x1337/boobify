@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Orders;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -17,7 +18,10 @@ class ModelController extends Controller
 
         switch ($page){
             case 'orders':
-                return view('model_dash.orders');
+                $orders = Orders::select('*')->where('model_name', Auth::user()->name)->orderBy('created_at', 'desc')->get();
+                return view('model_dash.orders', [
+                    'orders' => $orders
+                ]);
             case 'earnings':
                 return view('model_dash.earnings');
             case 'services':
