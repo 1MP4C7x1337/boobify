@@ -9,7 +9,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Shakurov\Coinbase\Models\CoinbaseWebhookCall;
 
-class HandleCreatedCharge implements ShouldQueue
+class HandleConfirmedCharge implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
     

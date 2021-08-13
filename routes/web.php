@@ -35,11 +35,11 @@ Route::get('dashboard', function(){
 Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
 
-//Order routes
-Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
-Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
-
-
+//User routes
+Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('user_dashboard', function(){
+    return redirect('dashboard/orders');
+});
 
 //Admin routes
 Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->name('adminPanel');
@@ -50,9 +50,9 @@ Route::get('adminPanel', function(){
 Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
 Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
 
-
-
-Route::get('/check', [UserController::class, 'userOnlineStatus']);
+//Order routes
+Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
+Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
 
 Route::get('/retrieve', [PaymentsController::class, 'show']);
 Route::Get('/webhooks', [PaymentsController::class, 'webhook']);
