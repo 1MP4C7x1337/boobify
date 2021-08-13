@@ -11,6 +11,7 @@ use Shakurov\Coinbase\Models\CoinbaseWebhookCall;
 use Chatify\Facades\ChatifyMessenger as Chatify;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
+use App\Models\ChMessage;
 class HandleCreatedCharge implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
@@ -50,16 +51,27 @@ class HandleCreatedCharge implements ShouldQueue
             'current_status' => 'PAYED'
         ]);
 
-        DB::table('ch_messages')->insert([
+        ChMessage::create([
             'id' => $messageID,
-            'type' => 'user',
-            'from_id' => 2,
-            'to_id' => 1,
-            'body' => 'test1241',
-            'attachment' => null,
-            'seen' => FALSE
-
+                'type' => 'user',
+                'from_id' => 2,
+                'to_id' => 1,
+                'body' => 'test1241',
+                'attachment' => null,
+                'seen' => FALSE
         ]);
+
+        // DB::table('ch_messages')->insert([
+        //     'id' => $messageID,
+        //     'type' => 'user',
+        //     'from_id' => 2,
+        //     'to_id' => 1,
+        //     'body' => 'test1241',
+        //     'attachment' => null,
+        //     'seen' => FALSE
+
+        // ]);
+
         
         // you can access the payload of the webhook call with `$this->webhookCall->payload`
     }
