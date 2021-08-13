@@ -48,12 +48,6 @@
                      <a href="{{ route('dashboard', 'orders') }}" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>Orders</span></a>
                   </li>
                   <li>
-                     <a href="{{ route('dashboard', 'earnings') }}" class="iq-waves-effect"><i class="ri-home-3-line"></i><span>Earnings</span></a>
-                  </li>
-                  <li>
-                     <a href="{{ route('dashboard', 'services') }}" class="iq-waves-effect"><i class="ri-home-8-line"></i><span>Services</span></a>
-                  </li>
-                  <li>
                      <a href="{{ route('dashboard', 'chat') }}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Chat</span>
                   </a>
                </ul>

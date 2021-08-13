@@ -36,9 +36,9 @@ Route::post('create_service', [ModelController::class, 'create_service'])->name(
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
 
 //User routes
-Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('dashboard');
+Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('user_dashboard');
 Route::get('user_dashboard', function(){
-    return redirect('dashboard/orders');
+    return redirect('user_dashboard/orders');
 });
 
 //Admin routes

@@ -10,7 +10,6 @@ use Coinbase;
 use Illuminate\Support\Facades\DB;
 use PDO;
 use Illuminate\Support\Facades\Auth;
-use Chatify\Facades\ChatifyMessenger as Chatify;
 
 class PaymentsController extends Controller
 {
