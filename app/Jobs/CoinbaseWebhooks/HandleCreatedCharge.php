@@ -44,7 +44,7 @@ class HandleCreatedCharge implements ShouldQueue
 
         $charge_code = $webhook['event']['data']['code'];
         $order = Orders::where('payment_id', $charge_code)->update([
-            'current_status' => $modelid
+            'current_status' => $modelid->id
         ]);
 
         $messageID = mt_rand(9, 999999999) + time();

@@ -26,7 +26,6 @@
                     @foreach ($orders as $order)    
                         <tr>
                             <td>{{ $order->payment_id }}</td>
-                            <td>{{ $order->user_name }}</td>
                             <td>{{ $order->model_name }}</td>
                             <td>{{ $order->service_name }}</td>
                             <td>{{ $order->info }}</td>
