@@ -22,17 +22,9 @@ class UserController extends Controller
     public function dashboard($page){
         switch ($page){
             case 'orders':
-                $orders = Orders::select('*')->where('model_name', Auth::user()->name)->orderBy('created_at', 'desc')->get();
-                return view('model_dash.orders', [
+                $orders = Orders::select('*')->where('user_name', Auth::user()->name)->orderBy('created_at', 'desc')->get();
+                return view('user_dash.orders', [
                     'orders' => $orders
-                ]);
-            case 'earnings':
-                return view('model_dash.earnings');
-            case 'services':
-                $services = Service::select('*')->where('name', Auth::user()->name)->get();
-
-                return view('model_dash.services', [
-                    'services' => $services
                 ]);
             case 'chat':
                 return redirect('dashboard/chat');

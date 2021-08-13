@@ -13,7 +13,6 @@
                 <thead>
                     <tr>
                         <th>Code</th>
-                        <th>User Name</th>
                         <th>Model Name</th>
                         <th>Service Name</th>
                         <th>Additional information</th>

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 use Symfony\Component\HttpFoundation\Request;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +59,19 @@ Route::get('/retrieve', [PaymentsController::class, 'show']);
 Route::Get('/webhooks', [PaymentsController::class, 'webhook']);
 
 Auth::routes();
+
+
+Route::get('test', function(){
+    $modelid = User::where('name', 'Mateusz Dutkiewicz')->first(); 
+    $userid = User::where('name', 'test')->first(); 
+
+    $messageID = mt_rand(9, 999999999) + time();
+    Chatify::newMessage([
+        'id' => $messageID,
+        'type' => 'user',
+        'from_id' => $userid->id,
+        'to_id' => $modelid->id,
+        'body' => htmlentities(trim('test'), ENT_QUOTES, 'UTF-8'),
+        'attachment' => null,
+    ]);
+});
