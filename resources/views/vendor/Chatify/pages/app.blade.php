@@ -13,13 +13,13 @@
                 </nav>
             </nav>
             {{-- Search input --}}
-            <input type="text" class="messenger-search" placeholder="Search" />
+            <input type="text" class="messenger-search" placeholder="Search" style="display: none;"/>
             {{-- Tabs --}}
             <div class="messenger-listView-tabs">
                 <a href="#" @if($route == 'user') class="active-tab" @endif data-view="users">
                     <span class="far fa-user"></span> People</a>
-                <a href="#" @if($route == 'group') class="active-tab" @endif data-view="groups">
-                    <span class="fas fa-users"></span> Groups</a>
+                {{-- <a href="#" @if($route == 'group') class="active-tab" @endif data-view="groups">
+                    <span class="fas fa-users"></span> Groups</a> --}}
             </div>
         </div>
         {{-- tabs and lists --}}
@@ -35,7 +35,7 @@
                </div>
 
                {{-- Saved Messages --}}
-               {!! view('Chatify::layouts.listItem', ['get' => 'saved','id' => $id])->render() !!}
+               {{-- {!! view('Chatify::layouts.listItem', ['get' => 'saved','id' => $id])->render() !!} --}}
 
                {{-- Contact --}}
                <div class="listOfContacts" style="width: 100%;height: calc(100% - 200px);position: relative;"></div>
@@ -74,7 +74,13 @@
                 {{-- header buttons --}}
                 <nav class="m-header-right">
                     <a href="#" class="add-to-favorite"><i class="fas fa-star"></i></a>
-                    <a href="/"><i class="fas fa-home"></i></a>
+                    @if (Auth::user()->role == 'model')
+                        <a href="/dashboard"><i class="fas fa-home"></i></a>
+                    @elseif(Auth::user()->role == 'user')
+                        <a href="/user_dashboard"><i class="fas fa-home"></i></a>
+                    @elseif(Auth::user()->role == 'admin')
+                        <a href="/adminPanel"><i class="fas fa-home"></i></a>
+                    @endif
                     <a href="#" class="show-infoSide"><i class="fas fa-info-circle"></i></a>
                 </nav>
             </nav>

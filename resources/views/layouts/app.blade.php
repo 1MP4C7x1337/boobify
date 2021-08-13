@@ -66,9 +66,13 @@
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
-                                    @endif
-                                    @if(Auth::user()->role == "admin")
+                                    @elseif(Auth::user()->role == "admin")
                                     <a class="dropdown-item" href="{{ route('adminPanel', 'orders') }}"
+                                        onclick="">
+                                            {{ __('Dashboard') }}
+                                        </a>
+                                    @elseif(Auth::user()->role == "user")
+                                        <a class="dropdown-item" href="{{ route('user_dashboard', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>

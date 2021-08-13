@@ -24,6 +24,11 @@
                     </tr>
                 </thead>
                 <tbody>
+                    @if(count($orders) == 0)
+                        <tr>
+                            <td class="text-center" colspan="8">No orders detected</td>
+                        </tr>
+                    @endif
                     @foreach ($orders as $order)    
                         <tr>
                             <td>{{ $order->payment_id }}</td>
@@ -32,7 +37,13 @@
                             <td>{{ $order->service_name }}</td>
                             <td>{{ $order->info }}</td>
                             <td>{{ $order->price}}</td>
-                            <td><span class="badge badge-info">{{ $order->current_status }}</span></td>
+                            <td>
+                                @if ($order->current_status=='NEW')
+                                    <span class="badge badge-info">{{ $order->current_status }}</span>
+                                @elseif($order->current_status=='PAYED')
+                                    <span class="badge badge-secondary">{{ $order->current_status }}</span>
+                                @endif
+                            </td>
                             <td>{{ $order->created_at }}</td>
                             <td></td>
                         </tr>

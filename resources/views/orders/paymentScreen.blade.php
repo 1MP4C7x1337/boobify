@@ -46,6 +46,7 @@
                                         <th>Service Name</th>
                                         <th>Additional information</th>
                                         <th>Price $</th>
+                                        <th>Current status</th>
                                    </tr>
                                 </thead>
                                 <tbody>
@@ -55,14 +56,23 @@
                                         <td>{{ $metadata['service_name'] }}</td>
                                         <td>{{ $metadata['info'] }}</td>
                                         <td>{{ $metadata['price'] }}</td>
+                                        <td>
+                                            @if ($metadata['current_status']=='NEW')
+                                                <span class="badge badge-info">{{ $metadata['current_status'] }}</span>
+                                            @elseif($metadata['current_status']=='PAYED')
+                                            <span class="badge badge-secondary">{{ $metadata['current_status'] }}</span>
+                                            @endif
+                                        </td>
                                     </tr>
-
-                                   
                                </tbody>
                             </table>
+                            @if ($metadata['current_status']=='NEW')
+                                <h5 class="card-title">Charge {{ $charge_code }} will expire after an hour</h5>
+                            @endif
                                    </div>
                                 </div>
                              </div>
+                             <h6 class="float-left">You can come back to this page later using this link: <a href="{{ route('viewOrder', $charge_code) }}">{{ route('viewOrder', $charge_code) }}</a></h6>
                             <a class="float-right" href="https://commerce.coinbase.com/charges/{{ $charge_code }}">
                                 <button type="button" class="btn btn-primary" style="background: #1652f0 linear-gradient(#1652f0, #0655ab);">
                                     Buy with Crypto

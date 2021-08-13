@@ -40,7 +40,7 @@ Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->n
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('user_dashboard');
 Route::get('user_dashboard', function(){
-    return view('user_dash.dashboard');
+    return redirect('user_dashboard/orders');
 });
 
 //Admin routes
@@ -55,28 +55,6 @@ Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->n
 //Order routes
 Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
 Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
-
-Route::get('/retrieve', [PaymentsController::class, 'show']);
-Route::Get('/webhooks', [PaymentsController::class, 'webhook']);
+Route::get('viewOrder/{code}', [PaymentsController::class, 'viewOrder'])->name('viewOrder');
 
 Auth::routes();
-
-
-Route::get('test', function(){
-    $modelid = User::where('name', 'Mateusz Dutkiewicz')->first(); 
-    $userid = User::where('name', 'test')->first(); 
-
-    $messageID = mt_rand(9, 999999999) + time();
-    
-    ChMessage::create([
-        'id' => $messageID,
-        'type' => 'user',
-        'from_id' => 2,
-        'to_id' => 1,
-        'body' => 'test1241',
-        'attachment' => null,
-        'seen' => FALSE,
-        "created_at" =>  \Carbon\Carbon::now(), 
-        "updated_at" => \Carbon\Carbon::now(),
-]);
-});

@@ -45,7 +45,7 @@
                <ul id="iq-sidebar-toggle" class="iq-menu">
                   {{-- <li class="iq-menu-title"><i class="ri-subtract-line"></i><span>Dashboard</span></li> --}}
                   <li>
-                     <a href="{{ route('dashboard', 'orders') }}" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>Orders</span></a>
+                     <a href="{{ route('user_dashboard', 'orders') }}" class="iq-waves-effect"><i class="ri-home-4-line"></i><span>Orders</span></a>
                   </li>
                   <li>
                      <a href="{{ route('dashboard', 'chat') }}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Chat</span>

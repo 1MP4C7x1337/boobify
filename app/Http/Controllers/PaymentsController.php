@@ -13,23 +13,6 @@ use Illuminate\Support\Facades\Auth;
 
 class PaymentsController extends Controller
 {
-    public function show(){
-        
-        $charge = Coinbase::createCharge([
-            'name' => 'Real payment',
-            'description' => 'Description',
-            'local_price' => [
-                'amount' => 1,
-                'currency' => 'USD',
-            ],
-            'pricing_type' => 'fixed_price',
-            'metadata' => [
-                'user' => '',
-                'price'
-            ]
-        ]);
-    }
-
     public function webhook(){
         // $charges = Coinbase::getCharges();
         // dump($charges);
@@ -85,10 +68,27 @@ class PaymentsController extends Controller
                     'model_name' => $request->model,
                     'service_name' => $service[0],
                     'price' => $service[1],
-                    'info' => $request->info
+                    'info' => $request->info,
+                    'current_status' => 'NEW'
                 ]
             ]);
         }
+    }
+
+    public function viewOrder($code){
+         $order = Orders::where('payment_id', $code)->first();
+
+         return view('orders.paymentScreen', [
+            'charge_code' => $order->payment_id,
+            'metadata' => [
+                'user_name' => $order->user_name,
+                'model_name' => $order->model_name,
+                'service_name' => $order->service_name,
+                'price' => $order->price,
+                'info' => $order->info,
+                'current_status' => $order->current_status
+            ]
+            ]);
     }
 
 }
