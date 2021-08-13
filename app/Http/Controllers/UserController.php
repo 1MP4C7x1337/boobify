@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use DB;
 use Cache;
 use App\Models\User;
+use App\Models\Orders;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {

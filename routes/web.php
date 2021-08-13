@@ -40,7 +40,7 @@ Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->n
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('user_dashboard');
 Route::get('user_dashboard', function(){
-    return redirect('user_dashboard/orders');
+    return view('user_dash.dashboard');
 });
 
 //Admin routes
