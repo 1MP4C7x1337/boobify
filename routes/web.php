@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 use Symfony\Component\HttpFoundation\Request;
 use Chatify\Facades\ChatifyMessenger as Chatify;
+use App\Models\ChMessage;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,12 +67,16 @@ Route::get('test', function(){
     $userid = User::where('name', 'test')->first(); 
 
     $messageID = mt_rand(9, 999999999) + time();
-    Chatify::newMessage([
+    
+    ChMessage::create([
         'id' => $messageID,
         'type' => 'user',
-        'from_id' => $userid->id,
-        'to_id' => $modelid->id,
-        'body' => htmlentities(trim('test'), ENT_QUOTES, 'UTF-8'),
+        'from_id' => 2,
+        'to_id' => 1,
+        'body' => 'test1241',
         'attachment' => null,
-    ]);
+        'seen' => FALSE,
+        "created_at" =>  \Carbon\Carbon::now(), 
+        "updated_at" => \Carbon\Carbon::now(),
+]);
 });

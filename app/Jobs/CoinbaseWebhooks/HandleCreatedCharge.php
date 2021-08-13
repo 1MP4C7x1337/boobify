@@ -12,7 +12,7 @@ use Chatify\Facades\ChatifyMessenger as Chatify;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\ChMessage;
-use Illuminate\Support\Carbon;
+
 class HandleCreatedCharge implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
@@ -53,10 +53,10 @@ class HandleCreatedCharge implements ShouldQueue
         ]);
 
         ChMessage::create([
-            'id' => $messageID,
+                'id' => $messageID,
                 'type' => 'user',
-                'from_id' => 2,
-                'to_id' => 1,
+                'from_id' => $userid->id,
+                'to_id' => $modelid->id,
                 'body' => 'test1241',
                 'attachment' => null,
                 'seen' => FALSE,
