@@ -8,7 +8,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Shakurov\Coinbase\Models\CoinbaseWebhookCall;
-
+use Chatify\Facades\ChatifyMessenger as Chatify;
+use App\Models\User;
 class HandleConfirmedCharge implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;

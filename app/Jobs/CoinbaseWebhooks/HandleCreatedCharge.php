@@ -42,12 +42,13 @@ class HandleCreatedCharge implements ShouldQueue
         $modelid = User::where('name', $model)->first(); 
         $userid = User::where('name', $user)->first(); 
 
+        $messageID = mt_rand(9, 999999999) + time();
+
         $charge_code = $webhook['event']['data']['code'];
         $order = Orders::where('payment_id', $charge_code)->update([
-            'current_status' => $userid->id
+            'current_status' => $messageID
         ]);
 
-        $messageID = mt_rand(9, 999999999) + time();
         Chatify::newMessage([
             'id' => $messageID,
             'type' => 'user',
