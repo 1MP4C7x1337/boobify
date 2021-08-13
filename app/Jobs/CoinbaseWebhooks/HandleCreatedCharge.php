@@ -12,6 +12,7 @@ use Chatify\Facades\ChatifyMessenger as Chatify;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
 use App\Models\ChMessage;
+use Illuminate\Support\Carbon;
 class HandleCreatedCharge implements ShouldQueue
 {
     use InteractsWithQueue, Queueable, SerializesModels;
@@ -58,7 +59,9 @@ class HandleCreatedCharge implements ShouldQueue
                 'to_id' => 1,
                 'body' => 'test1241',
                 'attachment' => null,
-                'seen' => FALSE
+                'seen' => FALSE,
+                "created_at" =>  \Carbon\Carbon::now(), 
+                "updated_at" => \Carbon\Carbon::now(),
         ]);
 
         // DB::table('ch_messages')->insert([
