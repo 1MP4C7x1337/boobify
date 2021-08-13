@@ -26,23 +26,34 @@ class HandleConfirmedCharge implements ShouldQueue
     {
         $webhook = $this->webhookCall->payload;
 
-        $model = $webhook['event']['data']['metadata']['model_name'];
-        $user = $webhook['event']['data']['metadata']['user_name'];
-        $modelid = User::where('name', $model)->first(); 
-        $userid = User::where('name', $user)->first(); 
+        // $model = $webhook['event']['data']['metadata']['model_name'];
+        // $user = $webhook['event']['data']['metadata']['user_name'];
+        // $modelid = User::where('name', $model)->first(); 
+        // $userid = User::where('name', $user)->first(); 
 
-        $messageID = mt_rand(9, 999999999) + time();
+        // $messageID = mt_rand(9, 999999999) + time();
 
-        $charge_code = $webhook['event']['data']['code'];
-        $order = Orders::where('payment_id', $charge_code)->update([
-            'current_status' => 'PAYED'
-        ]);
+        // $charge_code = $webhook['event']['data']['code'];
+        // $order = Orders::where('payment_id', $charge_code)->update([
+        //     'current_status' => 'PAYED'
+        // ]);
 
+        // ChMessage::create([
+        //         'id' => $messageID,
+        //         'type' => 'user',
+        //         'from_id' => $userid->id,
+        //         'to_id' => $modelid->id,
+        //         'body' => 'test1241',
+        //         'attachment' => null,
+        //         'seen' => FALSE,
+        //         "created_at" =>  \Carbon\Carbon::now(), 
+        //         "updated_at" => \Carbon\Carbon::now(),
+        // ]);
         ChMessage::create([
-                'id' => $messageID,
+                'id' => 124124143,
                 'type' => 'user',
-                'from_id' => $userid->id,
-                'to_id' => $modelid->id,
+                'from_id' => 2,
+                'to_id' => 3,
                 'body' => 'test1241',
                 'attachment' => null,
                 'seen' => FALSE,
