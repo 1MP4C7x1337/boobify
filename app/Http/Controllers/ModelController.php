@@ -31,7 +31,7 @@ class ModelController extends Controller
                     'services' => $services
                 ]);
             case 'chat':
-                return view('model_dash.chat');
+                return redirect('dashboard/chat');
         }
     }
 

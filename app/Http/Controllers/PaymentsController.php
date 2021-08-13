@@ -10,6 +10,7 @@ use Coinbase;
 use Illuminate\Support\Facades\DB;
 use PDO;
 use Illuminate\Support\Facades\Auth;
+use Chatify\Facades\ChatifyMessenger as Chatify;
 
 class PaymentsController extends Controller
 {
@@ -77,6 +78,7 @@ class PaymentsController extends Controller
                     'info' => $request->info
                 ]
             ]);
+
             return view('orders.paymentScreen',[
                 'charge_code' => $charge['data']['code'],
                 'metadata' => [
