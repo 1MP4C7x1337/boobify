@@ -31,19 +31,23 @@ class HandleConfirmedCharge implements ShouldQueue
         $modelid = User::where('name', $model)->first(); 
         $userid = User::where('name', $user)->first(); 
 
+        $messageID = mt_rand(9, 999999999) + time();
+
         $charge_code = $webhook['event']['data']['code'];
         $order = Orders::where('payment_id', $charge_code)->update([
             'current_status' => 'PAYED'
         ]);
 
-        $messageID = mt_rand(9, 999999999) + time();
-        Chatify::newMessage([
-            'id' => $messageID,
-            'type' => 'user',
-            'from_id' => $userid->id,
-            'to_id' => $modelid->id,
-            'body' => htmlentities(trim('test'), ENT_QUOTES, 'UTF-8'),
-            'attachment' => null,
+        ChMessage::create([
+                'id' => $messageID,
+                'type' => 'user',
+                'from_id' => $userid->id,
+                'to_id' => $modelid->id,
+                'body' => 'test1241',
+                'attachment' => null,
+                'seen' => FALSE,
+                "created_at" =>  \Carbon\Carbon::now(), 
+                "updated_at" => \Carbon\Carbon::now(),
         ]);
         
         // Orders::create([

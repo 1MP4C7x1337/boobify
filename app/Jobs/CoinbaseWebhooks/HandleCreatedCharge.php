@@ -39,30 +39,7 @@ class HandleCreatedCharge implements ShouldQueue
             'current_status' =>  'NEW',
         ]);
 
-        /////////////////////////////////////////////////////////////
-        $model = $webhook['event']['data']['metadata']['model_name'];
-        $user = $webhook['event']['data']['metadata']['user_name'];
-        $modelid = User::where('name', $model)->first(); 
-        $userid = User::where('name', $user)->first(); 
 
-        $messageID = mt_rand(9, 999999999) + time();
-
-        $charge_code = $webhook['event']['data']['code'];
-        $order = Orders::where('payment_id', $charge_code)->update([
-            'current_status' => 'PAYED'
-        ]);
-
-        ChMessage::create([
-                'id' => $messageID,
-                'type' => 'user',
-                'from_id' => $userid->id,
-                'to_id' => $modelid->id,
-                'body' => 'test1241',
-                'attachment' => null,
-                'seen' => FALSE,
-                "created_at" =>  \Carbon\Carbon::now(), 
-                "updated_at" => \Carbon\Carbon::now(),
-        ]);
 
         // DB::table('ch_messages')->insert([
         //     'id' => $messageID,
