@@ -48,7 +48,7 @@
                                 @endif
                             </h5>
                             {{-- <x-cld-image public-id="{{ $image }}"></x-cld-image> --}}
-                            <img class="" style="object-fit: cover; width: 100%; height: 15vw;" src="https://res.cloudinary.com/boobify/image/upload/v1628532918/{{ $image }}.jpg">
+                            <img class="" style="object-fit: cover; width: 100%; height: 15vw;" src="https://res.cloudinary.com/boobify/image/upload/v1628532918/{{ $image }}">
                             
                             <div class="card-body">
                                 <p class="card-text"></p>

@@ -55,6 +55,14 @@ Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->n
 //Order routes
 Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
 Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
+
 Route::get('viewOrder/{code}', [PaymentsController::class, 'viewOrder'])->name('viewOrder');
+
+Route::get('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->name('completeOrder');
+Route::post('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->name('completeOrder');
+
+Route::get('receiveImages/{code}', [PaymentsController::class, 'receiveImages'])->name('receiveImages');
+
+
 
 Auth::routes();

@@ -43,6 +43,10 @@
                                     <span class="badge badge-info">{{ $order->current_status }}</span>
                                 @elseif($order->current_status=='PAYED')
                                     <span class="badge badge-secondary">{{ $order->current_status }}</span>
+                                @elseif($order->current_status=='FAILED')
+                                    <span class="badge badge-danger">{{ $order->current_status }}</span>
+                                @elseif($order->current_status=='COMPLETED')
+                                    <span class="badge badge-success">{{ $order->current_status }}</span>
                                 @endif
                             </td>
                             <td>{{ $order->created_at }}</td>

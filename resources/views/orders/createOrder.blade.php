@@ -36,11 +36,12 @@
                                 
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Choose service</label>
-                                        <select name="service" class="form-control" id="exampleFormControlSelect2" size="{{ count($services) }}" required>
+                                        <select name="service" class="form-control mb-1" id="exampleFormControlSelect2" size="{{ count($services) }}" required>
                                            @foreach ($services as $service)
                                                <option value="{{ $service->service_name }};{{ $service->price }}">{{ $service->service_name }}, {{ $service->price }}$</option>
                                            @endforeach
                                         </select>
+                                        <label for="exampleFormControlSelect2">Note: 2$ will be applied</label>
                                      </div>
                                      <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Additional information</label>

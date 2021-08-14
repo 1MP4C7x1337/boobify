@@ -48,7 +48,7 @@ class PaymentsController extends Controller
                 'name' => 'Boobify',
                 'description' => $service[0],
                 'local_price' => [
-                    'amount' => intval($service[1]),
+                    'amount' => intval($service[1]+2),
                     'currency' => 'USD',
                 ],
                 'pricing_type' => 'fixed_price',
@@ -89,6 +89,61 @@ class PaymentsController extends Controller
                 'current_status' => $order->current_status
             ]
             ]);
+    }
+
+    public function completeOrder($code, Request $request){
+        if($request->isMethod('get')){
+
+            $order = Orders::where('payment_id', $code)->first();
+
+            return view('orders.completeOrder', [
+                'charge_code' => $code,
+                'metadata' => [
+                    'user_name' => $order->user_name,
+                    'model_name' => $order->model_name,
+                    'service_name' => $order->service_name,
+                    'price' => $order->price,
+                    'info' => $order->info,
+                    'current_status' => $order->current_status
+                ]
+            ]);
+        }else if($request->isMethod('post')){
+            $validated = $request->validate([
+                'images' => 'required'
+            ]);
+
+            $img_ids = [];
+            foreach ($request->images as $img){
+                $file = $img->storeOnCloudinary();
+                array_push($img_ids, $file->getPublicId());
+            }
+            $img_ids = implode(';', $img_ids);
+
+            Orders::where('payment_id', $code)->update([
+                'images_links' => $img_ids,
+                'current_status' => 'COMPLETED'
+            ]);
+
+            return redirect('dashboard');
+        }
+    }
+
+    public function receiveImages($code){
+        $order = Orders::where('payment_id', $code)->first();
+        $imgs = explode(';', $order->images_links);
+
+        return view('orders.receiveImages', [
+            'charge_code' => $code,
+            'metadata' => [
+                'user_name' => $order->user_name,
+                'model_name' => $order->model_name,
+                'service_name' => $order->service_name,
+                'price' => $order->price,
+                'info' => $order->info,
+                'current_status' => $order->current_status
+            ],
+            'imgs' => $imgs
+        ]);
     }
 
 }
