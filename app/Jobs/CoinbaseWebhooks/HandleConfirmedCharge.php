@@ -41,8 +41,8 @@ class HandleConfirmedCharge implements ShouldQueue
 
         //Earnings and balance update
         User::where('name', $model)->update([
-            'earnings' => $modelid->earnings + intval($webhook['event']['data']['metadata']['price']),
-            'balance' => $modelid->balance + intval($webhook['event']['data']['metadata']['price'])
+            'earnings' => $modelid->earnings + intval($webhook['event']['data']['metadata']['price'])*0.8,
+            'balance' => $modelid->balance + intval($webhook['event']['data']['metadata']['price'])*0.8
         ]);
 
         ChMessage::create([
