@@ -20,7 +20,7 @@
                         <th>Price $</th>
                         <th>Status</th>
                         <th>Created at</th>
-                        <th>Chat</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -31,7 +31,7 @@
                     @endif
                     @foreach ($orders as $order)    
                         <tr>
-                            <td>{{ $order->payment_id }}</td>
+                            <td><a href="https://commerce.coinbase.com/charges/{{ $order->payment_id }}">{{ $order->payment_id }}</a></td>
                             <td>{{ $order->user_name }}</td>
                             <td>{{ $order->model_name }}</td>
                             <td>{{ $order->service_name }}</td>
@@ -45,7 +45,13 @@
                                 @endif
                             </td>
                             <td>{{ $order->created_at }}</td>
-                            <td></td>
+                            <td>
+                                @if ($order->current_status == 'PAYED')
+                                    <a href=""><button class="btn btn-success" type="button">Send picture</button></a>
+                                @else
+                                    <button class="btn btn-success" type="button" disabled>Send picture</button>
+                                @endif
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>

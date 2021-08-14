@@ -19,7 +19,6 @@
                         <th>Price $</th>
                         <th>Status</th>
                         <th>Created at</th>
-                        <th>Chat</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -30,7 +29,7 @@
                     @endif
                     @foreach ($orders as $order)    
                         <tr>
-                            <td>{{ $order->payment_id }}</td>
+                            <td><a href="https://commerce.coinbase.com/charges/{{ $order->payment_id }}">{{ $order->payment_id }}</a></td>
                             <td>{{ $order->model_name }}</td>
                             <td>{{ $order->service_name }}</td>
                             <td>{{ $order->info }}</td>
@@ -43,7 +42,6 @@
                                 @endif
                             </td>
                             <td>{{ $order->created_at }}</td>
-                            <td></td>
                         </tr>
                     @endforeach
                 </tbody>

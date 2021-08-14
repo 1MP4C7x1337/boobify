@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('role')->default('user');
             $table->string('images')->nullable();
             $table->string('balance')->nullable();
+            $table->string('earnings')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

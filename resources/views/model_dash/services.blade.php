@@ -23,6 +23,11 @@
        </tr>
    </thead>
    <tbody>
+        @if(count($services) == 0)
+            <tr>
+                <td class="text-center" colspan="5">No services detected</td>
+            </tr>
+        @endif
         @foreach ($services as $service)
             <tr>
                 <td>{{ $service->id }}</td>
