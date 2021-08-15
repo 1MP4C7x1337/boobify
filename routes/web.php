@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ModelController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\UserController;
+use App\Http\Middleware\VerifyIfAdmin;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
@@ -45,14 +46,14 @@ Route::get('user_dashboard', function(){
 });
 
 //Admin routes
-Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->name('adminPanel');
+Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->middleware(VerifyIfAdmin::class)->name('adminPanel');
 Route::get('adminPanel', function(){
     return redirect('adminPanel/orders');
-});
-Route::post('closeWithdrawal', [AdminController::class, 'closeWithdrawal'])->name('closeWithdrawal');
+})->middleware(VerifyIfAdmin::class);
+Route::post('closeWithdrawal', [AdminController::class, 'closeWithdrawal'])->middleware(VerifyIfAdmin::class)->name('closeWithdrawal');
 
-Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
-Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
+Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
+Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 
 //Order routes
 Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
