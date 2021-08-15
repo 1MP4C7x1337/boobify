@@ -80,6 +80,7 @@
                     <strong>{{ $message }}</strong>
                 </span>
             @enderror
+            <label for="price">Note: We will charge you 20% from service price.</label>
         </div>
           <button type="submit" class="btn btn-primary">Submit</button>
        </form>
