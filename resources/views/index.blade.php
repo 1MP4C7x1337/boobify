@@ -47,7 +47,7 @@
                             {{-- <x-cld-image public-id="{{ $image }}"></x-cld-image> --}}
                                 <img class="card-img" src="https://res.cloudinary.com/boobify/image/upload/v1628532918/{{ $image }}">
                             <div class="card-footer">
-                                <a href="{{ route('create_order', $model->id) }}"><button class="btn mainBtn" style="font-size: 1vw;">Order now</button></a>
+                                <a href="{{ route('create_order', $model->id) }}"><button class="btn mainBtn">Order now</button></a>
                             </div>
                         </div>
                     </div>
