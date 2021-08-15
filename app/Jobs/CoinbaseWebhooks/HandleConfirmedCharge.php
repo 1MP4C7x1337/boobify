@@ -39,18 +39,12 @@ class HandleConfirmedCharge implements ShouldQueue
             'current_status' => 'PAYED'
         ]);
 
-        //Earnings and balance update
-        User::where('name', $model)->update([
-            'earnings' => $modelid->earnings + intval($webhook['event']['data']['metadata']['price'])*0.8,
-            'balance' => $modelid->balance + intval($webhook['event']['data']['metadata']['price'])*0.8
-        ]);
-
         ChMessage::create([
                 'id' => $messageID,
                 'type' => 'user',
                 'from_id' => $userid->id,
                 'to_id' => $modelid->id,
-                'body' => "Order $charge_code initiated. Additional info: ".$webhook['event']['data']['metadata']['info']." Message sent by a bot.",
+                'body' => "Order $charge_code initiated. Additional info: ".$webhook['event']['data']['metadata']['info'].". Message sent by a bot.",
                 'attachment' => null,
                 'seen' => FALSE,
                 "created_at" =>  \Carbon\Carbon::now(), 
