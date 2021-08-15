@@ -22,8 +22,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('role')->default('user');
             $table->string('images')->nullable();
-            $table->string('balance')->nullable();
-            $table->string('earnings')->nullable();
+            $table->string('balance')->nullable()->default('0');
+            $table->string('earnings')->nullable()->default('0');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -76,7 +76,7 @@
                                 <div class="form-group">
                                     <label for="images" style="">Upload sample photos</label><br>
                                     {{-- <input type="file" class="inputfile" name="images[]" data-multiple-caption="{count} files selected" class="form-control mb-0 @error('images') is-invalid @enderror" style="width: 0.1px;height: 0.1px;opacity: 0; overflow: hidden; position: absolute; z-index: -1;" id="images" placeholder="Images" multiple required> --}}
-                                    <input type="file" name="images[]" id="file" class="" multiple />
+                                    <input type="file" class="@error('images') is-invalid @enderror" name="images[]" id="file" class="" multiple />
                                     @error('images')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>

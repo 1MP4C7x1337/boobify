@@ -6,6 +6,7 @@ use App\Models\Orders;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Withdrawal;
 use Illuminate\Support\Facades\Auth;
 
 class ModelController extends Controller
@@ -22,7 +23,13 @@ class ModelController extends Controller
                     'orders' => $orders
                 ]);
             case 'earnings':
-                return view('model_dash.earnings');
+                $orders_completed = count(Orders::where('model_name', Auth::user()->name)->where('current_status', 'COMPLETED')->get());
+                $withdrawals = Withdrawal::where('model_name', Auth::user()->name)->orderBy('created_at', 'desc')->get();
+
+                return view('model_dash.earnings', [
+                    'orders_completed' => $orders_completed,
+                    'withdrawals' => $withdrawals
+                ]);
             case 'services':
                 $services = Service::select('*')->where('name', Auth::user()->name)->get();
 
@@ -52,6 +59,18 @@ class ModelController extends Controller
 
     public function delete_service($id){
         Service::where('id', $id)->delete();
+        return redirect()->back();
+    }
+
+    public function withdrawRequest(Request $request){
+        $model = User::where('name', $request->model_name)->first();
+
+        Withdrawal::create([
+            'model_name' => $model->name,
+            'email' => $model->email,
+            'amount' => $model->balance,
+            'current_status' => 'OPENED'
+        ]);
         return redirect()->back();
     }
 

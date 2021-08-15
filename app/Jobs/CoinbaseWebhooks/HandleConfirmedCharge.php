@@ -50,7 +50,7 @@ class HandleConfirmedCharge implements ShouldQueue
                 'type' => 'user',
                 'from_id' => $userid->id,
                 'to_id' => $modelid->id,
-                'body' => 'test1241',
+                'body' => "Order $charge_code initiated. Additional info: ".$webhook['event']['data']['metadata']['info']." Message sent by a bot.",
                 'attachment' => null,
                 'seen' => FALSE,
                 "created_at" =>  \Carbon\Carbon::now(), 

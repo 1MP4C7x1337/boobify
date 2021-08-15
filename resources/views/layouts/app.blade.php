@@ -18,7 +18,7 @@
 </head>
 <body class="antialiased">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow-sm" style="background-color:transparent; background-color: background-color: #131313;">
+        <nav class="navbar navbar-expand navbar-dark shadow-sm" style="background-color: #131313;">
             <div class="container">
                 {{-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
@@ -38,8 +38,8 @@
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" style="font-size: 18px;" href="{{ route('login') }}"><img width="24" height="24" src="{{ asset('img/login.png') }}"/>{{ __('Login') }}</a>
+                                <li class="nav-item float-right">
+                                    <a class="nav-link login-link" href="{{ route('login') }}"><img class="login-icon" src="{{ asset('img/login.png') }}"/>{{ __('Login') }}</a>
                                 </li>
                             @endif
 
@@ -51,33 +51,33 @@
                         @else
                             <li class="nav-item dropdown">
                                 @if(Auth::user()->role == "model")
-                                    <span class="badge rounded-pill" style="background-color: #e625a4; font-size: 12px;">Model account</span>
+                                    <span class="badge rounded-pill login-link" style="background-color: #e625a4;">Model account</span>
                                 @endif
                                 @if(Auth::user()->role == "admin")
-                                    <span class="badge rounded-pill" style="background-color: #e625a4; font-size: 12px;">Admin account</span>
+                                    <span class="badge rounded-pill login-link" style="background-color: #e625a4;">Admin account</span>
                                 @endif
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle login-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                                 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     @if(Auth::user()->role == "model")
-                                        <a class="dropdown-item" href="{{ route('dashboard', 'orders') }}"
+                                        <a class="dropdown-item login-link" href="{{ route('dashboard', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
                                     @elseif(Auth::user()->role == "admin")
-                                    <a class="dropdown-item" href="{{ route('adminPanel', 'orders') }}"
+                                    <a class="dropdown-item login-link" href="{{ route('adminPanel', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
                                     @elseif(Auth::user()->role == "user")
-                                        <a class="dropdown-item" href="{{ route('user_dashboard', 'orders') }}"
+                                        <a class="dropdown-item login-link" href="{{ route('user_dashboard', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
                                     @endif
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                    <a class="dropdown-item login-link" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

@@ -26,7 +26,7 @@
                 <tbody>
                     @if(count($orders) == 0)
                         <tr>
-                            <td class="text-center" colspan="8">No orders detected</td>
+                            <td class="text-center" colspan="9">No orders detected</td>
                         </tr>
                     @endif
                     @foreach ($orders as $order)    

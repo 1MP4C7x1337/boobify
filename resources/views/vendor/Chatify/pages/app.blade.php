@@ -13,7 +13,7 @@
                 </nav>
             </nav>
             {{-- Search input --}}
-            <input type="text" class="messenger-search" placeholder="Search" style="display: none;"/>
+            <input type="text" class="messenger-search" placeholder="Search" @if (Auth::user()->role != 'admin')style="display: none;" @endif>
             {{-- Tabs --}}
             <div class="messenger-listView-tabs">
                 <a href="#" @if($route == 'user') class="active-tab" @endif data-view="users">

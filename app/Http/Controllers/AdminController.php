@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Orders;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Withdrawal;
 use Mockery\Generator\Method;
 use Illuminate\Support\Facades\Hash;
 
@@ -26,6 +27,12 @@ class AdminController extends Controller
 
                 return view('admin_dash.users',[
                     'users' => $users
+                ]);
+            case 'withdrawals':
+                $withdrawals = Withdrawal::select('*')->orderBy('created_at', 'desc')->get();
+
+                return view('admin_dash.withdrawals', [
+                    'withdrawals' => $withdrawals
                 ]);
         }
     }
@@ -127,5 +134,20 @@ class AdminController extends Controller
 
             return redirect()->back();
         }
+    }
+
+    public function closeWithdrawal(Request $request){
+        Withdrawal::where('id', $request->id)->update([
+            'current_status' => 'CLOSED'
+        ]);
+
+        $withdrawal = Withdrawal::where('id', $request->id)->first();
+        $model_name = $withdrawal->model_name;
+
+        User::where('name', $model_name)->update([
+            'balance' => '0'
+        ]);
+
+        return redirect()->back();
     }
 }

@@ -20,6 +20,8 @@
            <th>Age</th>
            <th>Role</th>
            <th>Images</th>
+           <th>Earnings $</th>
+           <th>Balance $</th>
            <th>Created at</th>
            <th></th>
        </tr>
@@ -48,6 +50,20 @@
                     @else 
                         N/A 
                     @endif</td>
+                <td>
+                    @if($user->role=='model')
+                        {{ $user->earnings }}
+                    @else
+                        N/A
+                    @endif
+                </td>
+                <td>
+                    @if($user->role=='model')
+                        {{ $user->balance }}
+                    @else
+                        N/A
+                    @endif
+                </td>
                 <td>{{ $user->created_at }}</td>
                 <td style="width: 5rem;"><a href="{{ route('editUser', $user->id) }}"><button type="button" class="btn mb-3 btn-secondary"><i class="ri-bill-fill"></i>Edit</button></a></td>
             </tr>

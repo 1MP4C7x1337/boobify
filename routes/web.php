@@ -36,6 +36,7 @@ Route::get('dashboard', function(){
 });
 Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
+Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->name('withdraw');
 
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->name('user_dashboard');
@@ -48,6 +49,7 @@ Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->name('admin
 Route::get('adminPanel', function(){
     return redirect('adminPanel/orders');
 });
+Route::post('closeWithdrawal', [AdminController::class, 'closeWithdrawal'])->name('closeWithdrawal');
 
 Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
 Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');

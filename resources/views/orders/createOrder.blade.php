@@ -4,7 +4,7 @@
       <!-- Required meta tags -->
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-      <title>Login</title>
+      <title>Make order - Boobify</title>
       <!-- Favicon -->
       <link rel="shortcut icon" href="{{ asset('images/favicon.ico') }}" />
       <!-- Bootstrap CSS -->
@@ -37,19 +37,24 @@
                                     <div class="form-group">
                                         <label for="exampleFormControlSelect2">Choose service</label>
                                         <select name="service" class="form-control mb-1" id="exampleFormControlSelect2" size="{{ count($services) }}" required>
+                                        @if (count($services)==0)
+                                            <option>No services available</option>
+                                        @endif
                                            @foreach ($services as $service)
                                                <option value="{{ $service->service_name }};{{ $service->price }}">{{ $service->service_name }}, {{ $service->price }}$</option>
                                            @endforeach
                                         </select>
-                                        <label for="exampleFormControlSelect2">Note: 2$ will be applied</label>
+                                        <label for="exampleFormControlSelect2">Note: 2$ fee will be applied</label>
                                      </div>
                                      <div class="form-group">
                                         <label for="exampleFormControlTextarea1">Additional information</label>
                                         <textarea class="form-control" name="info" id="exampleFormControlTextarea1" rows="3" required></textarea>
                                      </div>
                                      <input type="hidden" name="model" value="{{ $model->name }}">
-                                     <button type="submit" class="btn mb-3 dark-icon btn-primary"><i class="ri-bill-fill"></i>Place order</button>
-                            </form>
+                                     @if (count($services)!=0)
+                                        <button type="submit" class="btn mb-3 dark-icon btn-primary"><i class="ri-bill-fill"></i>Place order</button>
+                                     @endif
+                                </form>
                         </div>
                     </div>
                     @yield('content')
