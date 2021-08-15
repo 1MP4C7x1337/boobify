@@ -9,6 +9,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\CssSelector\Node\FunctionNode;
 use Symfony\Component\HttpFoundation\Request;
+use App\Http\Middleware\VerifyIfAdmin;
+use App\Http\Middleware\VerifyIfModel;
+use App\Http\Middleware\VerifyIfUser;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,12 +31,12 @@ Route::get('/join', function(){
 })->name('modelSubmission');
 
 // Model routes
-Route::get('/dashboard/{page}', [ModelController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/{page}', [ModelController::class, 'index'])->middleware(VerifyIfModel::class)->name('dashboard');
 Route::get('dashboard', function(){
     return redirect('dashboard/orders');
-});
-Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
-Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
+})->middleware(VerifyIfModel::class);
+Route::post('create_service', [ModelController::class, 'create_service'])->middleware(VerifyIfModel::class)->name('create_service');
+Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->middleware(VerifyIfModel::class)->name('delete_service');
 
 //Order routes
 Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
@@ -42,13 +45,13 @@ Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])
 
 
 //Admin routes
-Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->name('adminPanel');
+Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->middleware(VerifyIfAdmin::class)->name('adminPanel');
 Route::get('adminPanel', function(){
     return redirect('adminPanel/orders');
-});
+})->middleware(VerifyIfAdmin::class);
 
-Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
-Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->name('editUser');
+Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
+Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 
 
 
