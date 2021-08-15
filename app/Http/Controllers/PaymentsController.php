@@ -124,7 +124,7 @@ class PaymentsController extends Controller
                 'current_status' => 'COMPLETED'
             ]);
 
-            $order = Order::where('payment_id', $code)->first();
+            $order = Orders::where('payment_id', $code)->first();
             $model = User::where('name', Auth::user()->name)->first();
             User::where('name', $order->model_name)->update([
                 'earnings' => $model->earnings + intval($order->price)*0.8,
