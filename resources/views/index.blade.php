@@ -3,7 +3,7 @@
 
     <div class="container-fluid" style="">
         <div class="row">
-            <img class="img-fluid" src="{{ asset('img/bg2.png') }}" style="width: 100%;z-index: -1; user-select: none; object-fit: cover;"/> 
+            <img class="img-fluid bg-img" src="{{ asset('img/bg2.png') }}" style="width: 100%;z-index: -1; user-select: none; object-fit: cover;"/> 
         </div>
         <div class="row justify-content-around text-center mb-3">
             <div class="col-12 col-md-4 mb-5">
