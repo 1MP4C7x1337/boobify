@@ -62,6 +62,7 @@
                                 </div>
                                 <div class="sign-info">
                                     <span class="dark-color d-inline-block line-height-2">Don't have an account? <a href="{{ route('register') }}">Sign up</a></span>
+                                    <span class="dark-color d-inline-block line-height-2 ml-2">Do you want join as model? <a href="{{ route('modelSubmission') }}">Sign up</a></span>
                                     <ul class="iq-social-media">
                                         <li><a href="#"><i class="ri-facebook-box-line"></i></a></li>
                                         <li><a href="#"><i class="ri-twitter-line"></i></a></li>
