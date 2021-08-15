@@ -25,9 +25,9 @@
       <!-- loader END -->
         <!-- Sign in Start -->
         <section class="sign-in-">
-            <div class="container mt-5 p-0 bg-white">
+            <div class="container mt-5 p-5 bg-white">
                 <div class="row no-gutters">
-                    <div class="col-sm-6 align-self-center">
+                    <div class="col-sm-12 align-self-center">
                         <div class="sign-in-from">
                             <h1 class="mb-0">Sign Up</h1>
 
@@ -99,28 +99,6 @@
                                     </ul>
                                 </div>
                             </form>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 text-center">
-                        <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a>
-                            <div class="slick-slider11">
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>

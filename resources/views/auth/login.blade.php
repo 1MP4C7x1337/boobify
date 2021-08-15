@@ -25,9 +25,9 @@
       <!-- loader END -->
         <!-- Sign in Start -->
         <section class="sign-in-page">
-            <div class="container bg-white mt-5 p-0">
+            <div class="container bg-white mt-5 p-5">
                 <div class="row no-gutters">
-                    <div class="col-sm-6 align-self-center">
+                    <div class="col-sm-12 align-self-center">
                         <div class="sign-in-from">
                             <h1 class="mb-0 dark-signin">Sign in</h1>
                             
@@ -71,28 +71,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="col-sm-6 text-center">
-                        <div class="sign-in-detail text-white">
-                            <a class="sign-in-logo mb-5" href="#"><img src="images/logo-white.png" class="img-fluid" alt="logo"></a>
-                            <div class="slick-slider11" data-autoplay="true" data-loop="true" data-nav="false" data-dots="true" data-items="1" data-items-laptop="1" data-items-tab="1" data-items-mobile="1" data-items-mobile-sm="1" data-margin="0">
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                                <div class="item">
-                                    <img src="images/login/1.png" class="img-fluid mb-4" alt="logo">
-                                    <h4 class="mb-1 text-white">Manage your orders</h4>
-                                    <p>It is a long established fact that a reader will be distracted by the readable content.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
