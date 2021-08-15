@@ -5,6 +5,8 @@ use App\Http\Controllers\ModelController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\VerifyIfAdmin;
+use App\Http\Middleware\VerifyIfModel;
+use App\Http\Middleware\VerifyIfUser;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Route;
@@ -31,13 +33,13 @@ Route::get('/join', function(){
 })->name('modelSubmission');
 
 // Model routes
-Route::get('/dashboard/{page}', [ModelController::class, 'index'])->name('dashboard');
+Route::get('/dashboard/{page}', [ModelController::class, 'index'])->middleware(VerifyIfModel::class)->name('dashboard');
 Route::get('dashboard', function(){
     return redirect('dashboard/orders');
-});
-Route::post('create_service', [ModelController::class, 'create_service'])->name('create_service');
-Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->name('delete_service');
-Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->name('withdraw');
+})->middleware(VerifyIfModel::class);
+Route::post('create_service', [ModelController::class, 'create_service'])->middleware(VerifyIfModel::class)->name('create_service');
+Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->middleware(VerifyIfModel::class)->name('delete_service');
+Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->middleware(VerifyIfModel::class)->name('withdraw');
 
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->middleware(VerifyIfUser::class)->name('user_dashboard');
@@ -56,15 +58,15 @@ Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->mi
 Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 
 //Order routes
-Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
-Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->name('create_order');
+Route::get('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->middleware('auth')->name('create_order');
+Route::post('createOrder/{modelid}', [PaymentsController::class, 'createOrder'])->middleware('auth')->name('create_order');
 
-Route::get('viewOrder/{code}', [PaymentsController::class, 'viewOrder'])->name('viewOrder');
+Route::get('viewOrder/{code}', [PaymentsController::class, 'viewOrder'])->middleware('auth')->name('viewOrder');
 
-Route::get('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->name('completeOrder');
-Route::post('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->name('completeOrder');
+Route::get('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->middleware(VerifyIfModel::class)->name('completeOrder');
+Route::post('completeOrder/{code}', [PaymentsController::class, 'completeOrder'])->middleware(VerifyIfModel::class)->name('completeOrder');
 
-Route::get('receiveImages/{code}', [PaymentsController::class, 'receiveImages'])->name('receiveImages');
+Route::get('receiveImages/{code}', [PaymentsController::class, 'receiveImages'])->middleware('auth')->name('receiveImages');
 
 
 
