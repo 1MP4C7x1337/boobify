@@ -54,10 +54,4 @@ Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->mi
 Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 
 
-
-Route::get('/check', [UserController::class, 'userOnlineStatus']);
-
-Route::get('/retrieve', [PaymentsController::class, 'show']);
-Route::Get('/webhooks', [PaymentsController::class, 'webhook']);
-
 Auth::routes();
