@@ -23,7 +23,6 @@ class VerifyIfUser
                 abort(403, "You don't have access to this website!");
             }
         }
-
         return $next($request);
     }
 }
