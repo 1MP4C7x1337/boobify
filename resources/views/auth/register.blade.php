@@ -36,7 +36,7 @@
                                 {{-- Hidden age input --}}
                                 <input type="hidden" name="age" value="0">
                                 <div class="form-group">
-                                    <label for="name">Username</label>
+                                    <label for="name">Name</label>
                                     <input type="text" class="form-control mb-0 @error('name') is-invalid @enderror" id="name" name="name" placeholder="Username" value="{{ old('name') }}" required>
                                     @error('name')
                                         <span class="invalid-feedback" role="alert">

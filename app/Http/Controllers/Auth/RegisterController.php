@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -42,6 +43,20 @@ class RegisterController extends Controller
     }
 
     /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function showRegistrationForm(Request $request)
+    {
+        if ($request->has('ref')) {
+            session(['referrer' => $request->query('ref')]);
+        }
+
+        return view('auth.register');
+    }
+
+    /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
@@ -59,7 +74,7 @@ class RegisterController extends Controller
             ]);
         }else{
             return Validator::make($data, [
-                'name' => ['required', 'string', 'max:255', 'unique:users'],
+                'name' => ['required', 'string', 'max:30', 'unique:users', 'alpha_dash', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8'],
                 'age' => ['required']
@@ -76,6 +91,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
+
         if(isset($data['role'])){
             if($data['role'] == 'model'){
                 $img_ids = [];
@@ -95,11 +111,14 @@ class RegisterController extends Controller
             }
         }
         if(!isset($data['role'])){
+            $referrer = User::whereName(session()->pull('referrer'))->first();
+
                 return User::create([
                     'name' => $data['name'],
                     'email' => $data['email'],
                     'age' => $data['age'],
                     'role' => $data['role'] ?? 'user',
+                    'referrer_id' => $referrer ? $referrer->id : null,
                     'password' => Hash::make($data['password']),
                 ]);
             

@@ -68,6 +68,7 @@ Route::post('completeOrder/{code}', [PaymentsController::class, 'completeOrder']
 
 Route::get('receiveImages/{code}', [PaymentsController::class, 'receiveImages'])->middleware('auth')->name('receiveImages');
 
+//Referrals
 
 
 Auth::routes();
