@@ -112,6 +112,7 @@ class PaymentsController extends Controller
                 'images' => 'required'
             ]);
 
+            //Images
             $img_ids = [];
             foreach ($request->images as $img){
                 $file = $img->storeOnCloudinary();
@@ -119,16 +120,29 @@ class PaymentsController extends Controller
             }
             $img_ids = implode(';', $img_ids);
 
+            //Status update
             Orders::where('payment_id', $code)->update([
                 'images_links' => $img_ids,
                 'current_status' => 'COMPLETED'
             ]);
 
+            //Balance update
             $order = Orders::where('payment_id', $code)->first();
             $model = User::where('name', Auth::user()->name)->first();
+
+            $referrer_id = (User::where('name', $order->user_name)->first())->referrer_id;
+
+            if($referrer_id != null){
+                $current_balance = (User::where('id', $referrer_id)->first())->balance;
+                User::where('id', $referrer_id)->update([
+                    'balance' => $current_balance + intval($order->price)*0.2/2
+                ]);
+            }
+            
+            $model_balance = (User::where('name', $order->model_name)->first())->balance;
             User::where('name', $order->model_name)->update([
                 'earnings' => $model->earnings + intval($order->price)*0.8,
-                'balance' => $model->balance + intval($order->price)*0.8
+                'balance' => $model_balance + intval($order->price)*0.8
             ]);
 
             return redirect('dashboard');

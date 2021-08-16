@@ -58,6 +58,9 @@
                   <li>
                      <a href="{{ route('dashboard', 'chat') }}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Chat</span></a>
                   </li>
+                  <li>
+                     <a href="{{ route('dashboard', 'referrals') }}" class="iq-waves-effect"><i class="fa fa-user-circle"></i><span>Referral Program</span></a>
+                  </li>
                </ul>
             </nav>
             <div class="p-3"></div>

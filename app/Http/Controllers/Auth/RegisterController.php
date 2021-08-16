@@ -66,7 +66,7 @@ class RegisterController extends Controller
     {
         if(isset($data['role']) and $data['role']=='model'){
             return Validator::make($data, [
-                'name' => ['required', 'string', 'max:255', 'unique:users'],
+                'name' => ['required', 'string', 'max:30', 'unique:users', 'alpha_dash', 'min:3'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
                 'password' => ['required', 'string', 'min:8'],
                 'age' => ['required'],

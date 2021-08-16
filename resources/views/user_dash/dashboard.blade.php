@@ -44,6 +44,9 @@
                   <li>
                      <a href="{{ route('dashboard', 'chat') }}" class="iq-waves-effect"><i class="ri-message-line"></i><span>Chat</span></a>
                   </li>
+                  <li>
+                     <a href="{{ route('user_dashboard', 'referrals') }}" class="iq-waves-effect"><i class="fa fa-user-circle"></i><span>Referral Program</span></a>
+                  </li>
                </ul>
             </nav>
             <div class="p-3"></div>
@@ -75,7 +78,9 @@
             </div>
             <nav class="navbar navbar-expand-lg navbar-light p-0">
                <div class="navbar-left">
-                  
+                  <div class="iq-search-bar d-none d-sm-block">
+                     <p style="font-size: 1.5rem">Balance: <span class="text-success">${{ Auth::user()->balance }}</span></p>
+                  </div>
                </div>
                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                   aria-controls="navbarSupportedContent" aria-label="Toggle navigation">

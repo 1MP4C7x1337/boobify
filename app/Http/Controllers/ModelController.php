@@ -38,6 +38,13 @@ class ModelController extends Controller
                 ]);
             case 'chat':
                 return redirect('dashboard/chat');
+            
+            case 'referrals':
+                $referredUsers = User::where('referrer_id', Auth::user()->id)->get();
+
+                return view('model_dash.referrals', [
+                    'referredUsers' => $referredUsers
+                ]);
         }
     }
 
