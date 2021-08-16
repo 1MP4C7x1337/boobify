@@ -18,6 +18,13 @@ class UserController extends Controller
             'models' => $models
         ]);
     }
+    /*Render search page */
+    public function search(Request $request){
+        $result = User::where('role', 'model')->where('name', 'like', "%$request->search%")->get();
+        return view('search', [
+            'result' => $result
+        ]);
+    }
     /**
      * Show user online status.
      *

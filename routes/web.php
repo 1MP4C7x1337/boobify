@@ -53,5 +53,9 @@ Route::get('adminPanel', function(){
 Route::get('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 Route::post('adminPanel/editUser/{id}', [AdminController::class, 'editUser'])->middleware(VerifyIfAdmin::class)->name('editUser');
 
+Route::get('search', function () {
+    return view('search');
+});
+Route::post('search', [UserController::class, 'search'])->name('search');
 
 Auth::routes();
