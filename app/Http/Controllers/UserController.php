@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use Cache;
 use App\Models\User;
+use App\Models\Service;
 
 class UserController extends Controller
 {
@@ -20,7 +21,7 @@ class UserController extends Controller
     }
     /*Render search page */
     public function search(Request $request){
-        $result = User::where('role', 'model')->where('name', 'like', "%$request->search%")->get();
+        $result = Service::where('service_name', 'like', "%$request->search%")->get();
         return view('search', [
             'result' => $result
         ]);

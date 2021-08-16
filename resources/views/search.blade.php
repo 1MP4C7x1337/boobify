@@ -2,7 +2,7 @@
 @section("content")
     <form action="{{ route('search') }}" method="post">
         @csrf
-        <label>Search model</label>
+        <label>Search services</label>
         <input type="search" name="search">
         <input type="submit" value="search">
     </form>
