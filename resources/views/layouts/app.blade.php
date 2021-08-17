@@ -56,6 +56,9 @@
                                 @if(Auth::user()->role == "admin")
                                     <span class="badge rounded-pill login-link" style="background-color: #e625a4;">Admin account</span>
                                 @endif
+                                @if(Auth::user()->role == "partner")
+                                    <span class="badge rounded-pill login-link" style="background-color: #e625a4;">Partner account</span>
+                                @endif
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle login-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
