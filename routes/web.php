@@ -47,6 +47,8 @@ Route::get('user_dashboard', function(){
     return redirect('user_dashboard/orders');
 })->middleware(VerifyIfUser::class);
 
+Route::post('updatePartnerReferral', [UserController::class, 'updatePartnerReferral'])->name('updatePartnerReferral');
+
 //Admin routes
 Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->middleware(VerifyIfAdmin::class)->name('adminPanel');
 Route::get('adminPanel', function(){

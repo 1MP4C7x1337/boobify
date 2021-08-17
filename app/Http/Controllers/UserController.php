@@ -32,11 +32,22 @@ class UserController extends Controller
                 return redirect('dashboard/chat');
 
             case 'referrals':
-                $referredUsers = User::where('referrer_id', Auth::user()->id)->get();
+                $referredUsers = count(User::where('referrer_id', Auth::user()->id)->get());
+
+                $compensation = 100 - User::where('role', 'partner')->first()->partner_referral;
 
                 return view('user_dash.referrals', [
-                    'referredUsers' => $referredUsers
+                    'referredUsers' => $referredUsers,
+                    'compensation' => $compensation
                 ]);
         }
     }
+
+    public function updatePartnerReferral(Request $request){
+        User::where('id', Auth::user()->id)->update([
+            'partner_referral'=>$request->referral
+        ]);
+        return redirect()->back();
+    }
+
 }

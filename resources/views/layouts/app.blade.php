@@ -71,7 +71,7 @@
                                         onclick="">
                                             {{ __('Dashboard') }}
                                         </a>
-                                    @elseif(Auth::user()->role == "user")
+                                    @elseif(Auth::user()->role == "user" or Auth::user()->role == "partner")
                                         <a class="dropdown-item login-link" href="{{ route('user_dashboard', 'orders') }}"
                                         onclick="">
                                             {{ __('Dashboard') }}

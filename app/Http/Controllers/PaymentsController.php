@@ -131,11 +131,28 @@ class PaymentsController extends Controller
             $model = User::where('name', Auth::user()->name)->first();
 
             $referrer_id = (User::where('name', $order->user_name)->first())->referrer_id;
+            $partner = User::where('role', 'partner')->first();
 
             if($referrer_id != null){
-                $current_balance = (User::where('id', $referrer_id)->first())->balance;
+                $current_user_balance = (User::where('id', $referrer_id)->first())->balance;
+                
+                if($partner != null){
+                    $current_partner_balance = $partner->balance;
+
+                    $user_update_percent = (100 - $partner->partner_referral)/100;
+                    $partner_update_percent = $partner->partner_referral/100;
+
+                    $update_partner_balance = intval($order->price)*0.2*$partner_update_percent;
+                    $update_user_balance = intval($order->price)*0.2*$user_update_percent;
+                    User::where('id', $partner->id)->update([
+                        'balance' => $current_partner_balance + $update_partner_balance
+                    ]);
+                    
+                }else{
+                    $update_user_balance = intval($order->price)*0.2/2;
+                }
                 User::where('id', $referrer_id)->update([
-                    'balance' => $current_balance + intval($order->price)*0.2/2
+                    'balance' => $current_user_balance + $update_user_balance
                 ]);
             }
             

@@ -19,7 +19,7 @@ class VerifyIfUser
         if($request->user()==null){
             return redirect('login');
         }else{
-            if($request->user()->role != 'user'){
+            if($request->user()->role != 'partner' and $request->user()->role != 'user'){
                 abort(403, "You don't have access to this website!");
             }
         }

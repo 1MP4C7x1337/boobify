@@ -24,6 +24,7 @@ class User extends Authenticatable
         'images',
         'password',
         'referrer_id',
+        'partner_referral'
     ];
 
     /**
