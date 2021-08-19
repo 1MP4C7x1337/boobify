@@ -25,10 +25,10 @@
                 <select name="role" class="form-control" id="exampleFormControlSelect1">
                     <option selected="">{{ $user->role }}</option>
                     @foreach ($roles as $role)
-                    @if($role->role == $user->role)
+                    @if($role == $user->role)
 
                     @else
-                        <option>{{ $role->role }}</option>
+                        <option>{{ $role }}</option>
                     @endif
                    @endforeach
                 </select>

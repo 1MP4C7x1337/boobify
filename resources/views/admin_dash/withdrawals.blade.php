@@ -12,7 +12,7 @@
             <table id="datatable" class="table table-striped table-bordered" >
                 <thead>
                     <tr>
-                        <th>Model</th>
+                        <th>User</th>
                         <th>Email</th>
                         <th>Amount $</th>
                         <th>Current status</th>

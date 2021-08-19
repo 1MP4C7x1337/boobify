@@ -48,6 +48,9 @@
                   <li>
                      <a href="{{ route('user_dashboard', 'referrals') }}" class="iq-waves-effect"><i class="fa fa-user-circle"></i><span>Referral Program</span></a>
                   </li>
+                  <li>
+                     <a href="{{ route('user_dashboard', 'withdraw') }}" class="iq-waves-effect"><i class="fa fa-money" aria-hidden="true"></i><span>Withdraw</span></a>
+                  </li>
                </ul>
             </nav>
             <div class="p-3"></div>
@@ -115,50 +118,7 @@
                                  <h5 class="mb-0 text-white line-height">Hello {{ Auth::user()->name }}</h5>
                                  <span class="text-white font-size-12">Online</span>
                               </div>
-                              <a href="profile.html" class="iq-sub-card iq-bg-primary-hover">
-                                 <div class="media align-items-center">
-                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                       <i class="ri-file-user-line"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                       <h6 class="mb-0 ">My Profile</h6>
-                                       <p class="mb-0 font-size-12">View personal profile details.</p>
-                                    </div>
-                                 </div>
-                              </a>
-                              <a href="profile-edit.html" class="iq-sub-card iq-bg-primary-hover">
-                                 <div class="media align-items-center">
-                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                       <i class="ri-profile-line"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                       <h6 class="mb-0 ">Edit Profile</h6>
-                                       <p class="mb-0 font-size-12">Modify your personal details.</p>
-                                    </div>
-                                 </div>
-                              </a>
-                              <a href="account-setting.html" class="iq-sub-card iq-bg-primary-hover">
-                                 <div class="media align-items-center">
-                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                       <i class="ri-account-box-line"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                       <h6 class="mb-0 ">Account settings</h6>
-                                       <p class="mb-0 font-size-12">Manage your account parameters.</p>
-                                    </div>
-                                 </div>
-                              </a>
-                              <a href="privacy-setting.html" class="iq-sub-card iq-bg-primary-hover">
-                                 <div class="media align-items-center">
-                                    <div class="rounded iq-card-icon iq-bg-primary">
-                                       <i class="ri-lock-line"></i>
-                                    </div>
-                                    <div class="media-body ml-3">
-                                       <h6 class="mb-0 ">Privacy Settings</h6>
-                                       <p class="mb-0 font-size-12">Control your privacy parameters.</p>
-                                    </div>
-                                 </div>
-                              </a>
+
                               <div class="d-inline-block w-100 text-center p-3">
                                  <a class="btn btn-primary dark-btn-primary" onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();" href="{{ route('logout') }}" role="button">Log

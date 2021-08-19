@@ -39,7 +39,7 @@ Route::get('dashboard', function(){
 })->middleware(VerifyIfModel::class);
 Route::post('create_service', [ModelController::class, 'create_service'])->middleware(VerifyIfModel::class)->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->middleware(VerifyIfModel::class)->name('delete_service');
-Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->middleware(VerifyIfModel::class)->name('withdraw');
+Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->name('withdraw');
 
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->middleware(VerifyIfUser::class)->name('user_dashboard');

@@ -8,6 +8,7 @@ use Cache;
 use App\Models\User;
 use App\Models\Orders;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Withdrawal;
 
 class UserController extends Controller
 {
@@ -39,6 +40,12 @@ class UserController extends Controller
                 return view('user_dash.referrals', [
                     'referredUsers' => $referredUsers,
                     'compensation' => $compensation
+                ]);
+            case 'withdraw':
+                $withdrawals = Withdrawal::where('model_name', Auth::user()->name)->orderBy('created_at', 'desc')->get();
+
+                return view('user_dash.withdraw', [
+                    'withdrawals' => $withdrawals
                 ]);
         }
     }

@@ -40,7 +40,7 @@ class AdminController extends Controller
     public function editUser($id, Request $request){
 
         $user = User::where('id', $id)->first();
-        $roles = User::select('role')->groupBy('role')->orderBy('role', 'asc')->get();
+        $roles = ['admin', 'partner', 'model', 'user'];
 
         if($request->isMethod('get')){
 
