@@ -136,23 +136,23 @@
         },
         {
             "name": "cloudinary/cloudinary_php",
-            "version": "2.7.1",
+            "version": "2.9.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cloudinary/cloudinary_php.git",
-                "reference": "dd9636019d402b823390a465351b61caea80f127"
+                "reference": "e03e4893f286cfcf798321dd2184b49de8652e4f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/dd9636019d402b823390a465351b61caea80f127",
-                "reference": "dd9636019d402b823390a465351b61caea80f127",
+                "url": "https://api.github.com/repos/cloudinary/cloudinary_php/zipball/e03e4893f286cfcf798321dd2184b49de8652e4f",
+                "reference": "e03e4893f286cfcf798321dd2184b49de8652e4f",
                 "shasum": ""
             },
             "require": {
                 "cloudinary/transformation-builder-sdk": "^1",
                 "ext-json": "*",
                 "guzzlehttp/guzzle": "^6|^7",
-                "monolog/monolog": "^1|^2",
+                "monolog/monolog": "^1|^2|^3",
                 "php": ">=5.6.0",
                 "psr/log": "^1|^2|^3",
                 "shrikeh/teapot": "^1|^2"
@@ -164,8 +164,8 @@
                 "ext-zip": "*",
                 "friendsofphp/php-cs-fixer": "*",
                 "phpmd/phpmd": "*",
-                "phpunit/phpunit": "^5",
-                "squizlabs/php_codesniffer": "3.*"
+                "squizlabs/php_codesniffer": "3.*",
+                "symfony/phpunit-bridge": "^5.2"
             },
             "type": "library",
             "autoload": {
@@ -195,9 +195,9 @@
             "support": {
                 "email": "info@cloudinary.com",
                 "issues": "https://github.com/cloudinary/cloudinary_php/issues",
-                "source": "https://github.com/cloudinary/cloudinary_php/tree/2.7.1"
+                "source": "https://github.com/cloudinary/cloudinary_php/tree/2.9.0"
             },
-            "time": "2022-05-26T13:18:56+00:00"
+            "time": "2022-09-18T16:51:26+00:00"
         },
         {
             "name": "cloudinary/transformation-builder-sdk",
