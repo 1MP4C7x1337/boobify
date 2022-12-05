@@ -2035,16 +2035,16 @@
         },
         {
             "name": "munafio/chatify",
-            "version": "v1.5.2",
+            "version": "v1.5.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/munafio/chatify.git",
-                "reference": "29a24b66dcef3966bdabc7a31ac7b6d3f5c0c7ea"
+                "reference": "31f2cf675ca8c50dde54cf199cb91f229ae27705"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/munafio/chatify/zipball/29a24b66dcef3966bdabc7a31ac7b6d3f5c0c7ea",
-                "reference": "29a24b66dcef3966bdabc7a31ac7b6d3f5c0c7ea",
+                "url": "https://api.github.com/repos/munafio/chatify/zipball/31f2cf675ca8c50dde54cf199cb91f229ae27705",
+                "reference": "31f2cf675ca8c50dde54cf199cb91f229ae27705",
                 "shasum": ""
             },
             "require": {
@@ -2091,9 +2091,9 @@
             ],
             "support": {
                 "issues": "https://github.com/munafio/chatify/issues",
-                "source": "https://github.com/munafio/chatify/tree/v1.5.2"
+                "source": "https://github.com/munafio/chatify/tree/v1.5.3"
             },
-            "time": "2022-07-08T15:41:00+00:00"
+            "time": "2022-12-04T16:53:28+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -3113,16 +3113,16 @@
         },
         {
             "name": "pusher/pusher-php-server",
-            "version": "7.2.0",
+            "version": "7.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pusher/pusher-http-php.git",
-                "reference": "7ed4a62956c7426814c7dc67b2bb764cd0e1a603"
+                "reference": "5d708d43d774218e1068037c56a887658a4930ac"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/7ed4a62956c7426814c7dc67b2bb764cd0e1a603",
-                "reference": "7ed4a62956c7426814c7dc67b2bb764cd0e1a603",
+                "url": "https://api.github.com/repos/pusher/pusher-http-php/zipball/5d708d43d774218e1068037c56a887658a4930ac",
+                "reference": "5d708d43d774218e1068037c56a887658a4930ac",
                 "shasum": ""
             },
             "require": {
@@ -3135,7 +3135,7 @@
             },
             "require-dev": {
                 "overtrue/phplint": "^2.3",
-                "phpunit/phpunit": "^8.5|^9.3"
+                "phpunit/phpunit": "^9.3"
             },
             "type": "library",
             "extra": {
@@ -3168,9 +3168,9 @@
             ],
             "support": {
                 "issues": "https://github.com/pusher/pusher-http-php/issues",
-                "source": "https://github.com/pusher/pusher-http-php/tree/7.2.0"
+                "source": "https://github.com/pusher/pusher-http-php/tree/7.2.1"
             },
-            "time": "2022-10-03T14:28:42+00:00"
+            "time": "2022-10-17T08:33:16+00:00"
         },
         {
             "name": "ralouphie/getallheaders",
