@@ -1112,16 +1112,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "67c26b443f348a51926030c83481b85718457d3d"
+                "reference": "3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
-                "reference": "67c26b443f348a51926030c83481b85718457d3d",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf",
+                "reference": "3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf",
                 "shasum": ""
             },
             "require": {
@@ -1211,7 +1211,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.4.3"
+                "source": "https://github.com/guzzle/psr7/tree/2.4.4"
             },
             "funding": [
                 {
@@ -1227,7 +1227,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-26T14:07:24+00:00"
+            "time": "2023-03-09T13:19:02+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2033,20 +2033,20 @@
         },
         {
             "name": "munafio/chatify",
-            "version": "v1.5.6",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/munafio/chatify.git",
-                "reference": "f5197f8e89d7d1315515d80ac2a867b5e88fabf0"
+                "reference": "7ae634e13bbf543f06b80a8d9d941e6101a830a4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/munafio/chatify/zipball/f5197f8e89d7d1315515d80ac2a867b5e88fabf0",
-                "reference": "f5197f8e89d7d1315515d80ac2a867b5e88fabf0",
+                "url": "https://api.github.com/repos/munafio/chatify/zipball/7ae634e13bbf543f06b80a8d9d941e6101a830a4",
+                "reference": "7ae634e13bbf543f06b80a8d9d941e6101a830a4",
                 "shasum": ""
             },
             "require": {
-                "pusher/pusher-php-server": "^7.0"
+                "pusher/pusher-php-server": "^7.2"
             },
             "type": "library",
             "extra": {
@@ -2089,9 +2089,9 @@
             ],
             "support": {
                 "issues": "https://github.com/munafio/chatify/issues",
-                "source": "https://github.com/munafio/chatify/tree/v1.5.6"
+                "source": "https://github.com/munafio/chatify/tree/v1.6.1"
             },
-            "time": "2023-01-26T20:31:56+00:00"
+            "time": "2023-03-03T17:15:45+00:00"
         },
         {
             "name": "nesbot/carbon",
