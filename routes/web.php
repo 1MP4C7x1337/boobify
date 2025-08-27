@@ -39,7 +39,7 @@ Route::get('dashboard', function(){
 })->middleware(VerifyIfModel::class);
 Route::post('create_service', [ModelController::class, 'create_service'])->middleware(VerifyIfModel::class)->name('create_service');
 Route::get('delete_service/{id}', [ModelController::class, 'delete_service'])->middleware(VerifyIfModel::class)->name('delete_service');
-Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->name('withdraw');
+Route::post('withdraw', [ModelController::class, 'withdrawRequest'])->middleware(VerifyIfModel::class)->name('withdraw');
 
 //User routes
 Route::get('/user_dashboard/{page}', [UserController::class, 'dashboard'])->middleware(VerifyIfUser::class)->name('user_dashboard');
@@ -47,7 +47,7 @@ Route::get('user_dashboard', function(){
     return redirect('user_dashboard/orders');
 })->middleware(VerifyIfUser::class);
 
-Route::post('updatePartnerReferral', [UserController::class, 'updatePartnerReferral'])->name('updatePartnerReferral');
+Route::post('updatePartnerReferral', [UserController::class, 'updatePartnerReferral'])->middleware(VerifyIfUser::class)->name('updatePartnerReferral');
 
 //Admin routes
 Route::get('/adminPanel/{page}', [AdminController::class, 'index'])->middleware(VerifyIfAdmin::class)->name('adminPanel');
