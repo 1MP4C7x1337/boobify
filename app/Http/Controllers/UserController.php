@@ -51,9 +51,14 @@ class UserController extends Controller
     }
 
     public function updatePartnerReferral(Request $request){
-        User::where('id', Auth::user()->id)->update([
-            'partner_referral'=>$request->referral
+        $validated = $request->validate([
+            'referral' => 'required|integer|min:0'
         ]);
+
+        User::where('id', Auth::id())->update([
+            'partner_referral' => $validated['referral']
+        ]);
+
         return redirect()->back();
     }
 

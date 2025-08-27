@@ -65,12 +65,16 @@ class ModelController extends Controller
     }
 
     public function delete_service($id){
-        Service::where('id', $id)->delete();
+        Service::where('id', $id)->where('name', Auth::user()->name)->delete();
         return redirect()->back();
     }
 
     public function withdrawRequest(Request $request){
-        $model = User::where('name', $request->model_name)->first();
+        $model = Auth::user();
+
+        if ($model->balance <= 0) {
+            return redirect()->back()->withErrors(['balance' => 'Insufficient balance']);
+        }
 
         Withdrawal::create([
             'model_name' => $model->name,
@@ -78,6 +82,7 @@ class ModelController extends Controller
             'amount' => $model->balance,
             'current_status' => 'OPENED'
         ]);
+
         return redirect()->back();
     }
 
