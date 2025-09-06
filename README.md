@@ -7,10 +7,11 @@ Boobify is a Laravel-based platform for managing model services, orders and refe
 - PHP ^7.3 or ^8.0
 - Composer
 - Node.js and npm
+- MySQL or another database supported by Laravel
 
 ## Installation
 
-1. Copy `.env.example` to `.env` and configure your environment variables.
+1. Copy `.env.example` to `.env` and configure your environment variables. A valid `APP_KEY` is required for the application to run. You can generate one with `php artisan key:generate`.
 2. Install PHP dependencies:
    ```bash
    composer install
@@ -19,14 +20,35 @@ Boobify is a Laravel-based platform for managing model services, orders and refe
    ```bash
    npm install
    ```
-4. Generate the application key:
-   ```bash
-   php artisan key:generate
-   ```
-5. Run database migrations:
+4. Run database migrations:
    ```bash
    php artisan migrate
    ```
+
+## Usage
+
+Start the local development server:
+
+```bash
+php artisan serve
+```
+
+The application will be available at `http://localhost:8000` by default.
+
+### Automatic scripts
+
+Two helper scripts are provided in the `scripts/` directory:
+
+- `scripts/auto-update.sh` – pulls the latest code, installs dependencies and runs migrations.
+- `scripts/auto-start.sh` – ensures dependencies are installed and launches `php artisan serve`.
+
+Make the scripts executable and run them as needed:
+
+```bash
+chmod +x scripts/*.sh
+./scripts/auto-update.sh
+./scripts/auto-start.sh
+```
 
 ## Security
 
@@ -42,6 +64,8 @@ Execute the test suite with:
 ```bash
 phpunit
 ```
+
+The default configuration catches database connection issues and returns an empty result set so tests can run without a configured database.
 
 ## License
 

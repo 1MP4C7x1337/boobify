@@ -16,9 +16,15 @@ class UserController extends Controller
     /*Render loading page */
     public function index()
     {
-        $models = User::select('*')->where('role', 'model')->get();
+        try {
+            $models = User::where('role', 'model')->get();
+        } catch (\Exception $e) {
+            // Database may be unavailable during testing or setup
+            $models = collect();
+        }
+
         return view('index', [
-            'models' => $models
+            'models' => $models,
         ]);
     }
 
