@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "05491273f3ac941f1a08028db5be575c",
+    "content-hash": "d29bcfd53803c2d128346e744e6d6cd8",
     "packages": [
         {
             "name": "brick/math",
@@ -3460,28 +3460,26 @@
         },
         {
             "name": "shakurov/coinbase",
-            "version": "v0.7.11",
+            "version": "v0.8.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/shakurov/laravel-coinbase.git",
-                "reference": "2b312c9ca2b75c8e4d580a12b04f5ef4c3a3425f"
+                "reference": "9b28cf7ff2ae98976b3cd0b92d7e16f5510008bd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/shakurov/laravel-coinbase/zipball/2b312c9ca2b75c8e4d580a12b04f5ef4c3a3425f",
-                "reference": "2b312c9ca2b75c8e4d580a12b04f5ef4c3a3425f",
+                "url": "https://api.github.com/repos/shakurov/laravel-coinbase/zipball/9b28cf7ff2ae98976b3cd0b92d7e16f5510008bd",
+                "reference": "9b28cf7ff2ae98976b3cd0b92d7e16f5510008bd",
                 "shasum": ""
             },
             "require": {
                 "guzzlehttp/guzzle": "^7.0.1",
-                "php": "^7.3|^8.0"
-            },
-            "replace": {
-                "antimech/coinbase": "^v0.7.11"
+                "php": "^8.1"
             },
             "require-dev": {
-                "orchestra/testbench": "^6.0.0",
-                "phpunit/phpunit": "^9.3.3"
+                "nunomaduro/collision": "^7.4",
+                "orchestra/testbench": "^8.5",
+                "phpunit/phpunit": "^10.2"
             },
             "type": "library",
             "extra": {
@@ -3517,10 +3515,10 @@
             ],
             "support": {
                 "issues": "https://github.com/shakurov/laravel-coinbase/issues",
-                "source": "https://github.com/shakurov/laravel-coinbase/tree/v0.7.11"
+                "source": "https://github.com/shakurov/laravel-coinbase/tree/v0.8.0"
             },
             "abandoned": "antimech/coinbase",
-            "time": "2023-07-10T18:42:32+00:00"
+            "time": "2023-10-27T12:42:37+00:00"
         },
         {
             "name": "spatie/laravel-package-tools",

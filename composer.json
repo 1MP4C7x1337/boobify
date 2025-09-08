@@ -18,7 +18,7 @@
         "laravel/tinker": "^2.10",
         "laravel/ui": "^3.4",
         "munafio/chatify": "^1.6",
-        "shakurov/coinbase": "^0.7.11",
+        "shakurov/coinbase": "^0.8.0",
         "spatie/laravel-webhook-client": "^3.2"
     },
     "require-dev": {
